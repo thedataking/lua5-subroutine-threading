@@ -1,11 +1,13 @@
 # change this variable to point to the directory with Lua headers
 # of the version being tested
-LUA_DIR = ../..
+LUA_DIR = ../../src
 
 CC = gcc
 
 # compilation should generate Dynamic-Link Libraries
-CFLAGS = -Wall -O2 -I$(LUA_DIR) -ansi -fpic -shared
+CFLAGS = -bundle -undefined dynamic_lookup -Wall -O2 -I$(LUA_DIR) -ansi 
+# use these flags on Linux
+#CFLAGS = -Wall -O2 -I$(LUA_DIR) -ansi -fpic -shared
 
 # libraries used by the tests
 all: lib1.so lib11.so lib2.so lib21.so v-lib2.so

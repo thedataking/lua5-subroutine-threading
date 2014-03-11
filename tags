@@ -1,0 +1,1329 @@
+BinOpr	src/lcode.h	/^} BinOpr;$/
+BlockCnt	src/lparser.c	/^} BlockCnt;$/
+CClosure	src/lobject.h	/^} CClosure;$/
+CREATE_ABC	src/lopcodes.h	/^#define CREATE_ABC(o,a,b,c)	((cast(Instruction, o)/
+CREATE_ABx	src/lopcodes.h	/^#define CREATE_ABx(o,a,bc)	((cast(Instruction, o)</
+CREATE_Ax	src/lopcodes.h	/^#define CREATE_Ax(o,a)		((cast(Instruction, o)<<PO/
+CallInfo	src/lstate.h	/^} CallInfo;$/
+CallS	src/lapi.c	/^struct CallS {  \/* data to `f_call' *\/$/
+Closure	src/lobject.h	/^} Closure;$/
+ConsControl	src/lparser.c	/^struct ConsControl {$/
+DumpBlock	src/ldump.c	/^static void DumpBlock(const void* b, size_t size, /
+DumpChar	src/ldump.c	/^static void DumpChar(int y, DumpState* D)$/
+DumpCode	src/ldump.c	/^#define DumpCode(f,D)	 DumpVector(f->code,f->sizec/
+DumpConstants	src/ldump.c	/^static void DumpConstants(const Proto* f, DumpStat/
+DumpDebug	src/ldump.c	/^static void DumpDebug(const Proto* f, DumpState* D/
+DumpFunction	src/ldump.c	/^static void DumpFunction(const Proto* f, DumpState/
+DumpHeader	src/ldump.c	/^static void DumpHeader(DumpState* D)$/
+DumpInt	src/ldump.c	/^static void DumpInt(int x, DumpState* D)$/
+DumpMem	src/ldump.c	/^#define DumpMem(b,n,size,D)	DumpBlock(b,(n)*(size)/
+DumpNumber	src/ldump.c	/^static void DumpNumber(lua_Number x, DumpState* D)/
+DumpState	src/ldump.c	/^} DumpState;$/
+DumpString	src/ldump.c	/^static void DumpString(const TString* s, DumpState/
+DumpUpvalues	src/ldump.c	/^static void DumpUpvalues(const Proto* f, DumpState/
+DumpVar	src/ldump.c	/^#define DumpVar(x,D)		DumpMem(&x,1,sizeof(x),D)$/
+DumpVector	src/ldump.c	/^static void DumpVector(const void* b, int n, size_/
+Dyndata	src/lparser.h	/^} Dyndata;$/
+FuncState	src/lparser.h	/^} FuncState;$/
+G	src/lstate.h	/^#define G(L)	(L->l_G)$/
+GCObject	src/lobject.h	/^typedef union GCObject GCObject;$/
+GCTM	src/lgc.c	/^static void GCTM (lua_State *L, int propagateerror/
+GCheader	src/lobject.h	/^} GCheader;$/
+GETARG_A	src/lopcodes.h	/^#define GETARG_A(i)	getarg(i, POS_A, SIZE_A)$/
+GETARG_Ax	src/lopcodes.h	/^#define GETARG_Ax(i)	getarg(i, POS_Ax, SIZE_Ax)$/
+GETARG_B	src/lopcodes.h	/^#define GETARG_B(i)	getarg(i, POS_B, SIZE_B)$/
+GETARG_Bx	src/lopcodes.h	/^#define GETARG_Bx(i)	getarg(i, POS_Bx, SIZE_Bx)$/
+GETARG_C	src/lopcodes.h	/^#define GETARG_C(i)	getarg(i, POS_C, SIZE_C)$/
+GETARG_sBx	src/lopcodes.h	/^#define GETARG_sBx(i)	(GETARG_Bx(i)-MAXARG_sBx)$/
+GET_OPCODE	src/lopcodes.h	/^#define GET_OPCODE(i)	(cast(OpCode, ((i)>>POS_OP) /
+INDEXK	src/lopcodes.h	/^#define INDEXK(r)	((int)(r) & ~BITRK)$/
+IS	src/luac.c	/^#define IS(s)	(strcmp(argv[i],s)==0)$/
+ISK	src/lopcodes.h	/^#define ISK(x)		((x) & BITRK)$/
+Instruction	src/llimits.h	/^typedef lu_int32 Instruction;$/
+IntPoint	src/llimits.h	/^#define IntPoint(p)  ((unsigned int)(lu_mem)(p))$/
+KBx	src/lvm.c	/^#define KBx(i)  \\$/
+L	src/lua.h	/^typedef int (*lua_CFunction) (lua_State *L);$/
+LClosure	src/lobject.h	/^} LClosure;$/
+LG	src/lstate.c	/^} LG;$/
+LHS_assign	src/lparser.c	/^struct LHS_assign {$/
+LL	src/lobject.c	/^#define LL(x)	(sizeof(x)\/sizeof(char) - 1)$/
+LStream	src/liolib.c	/^typedef luaL_Stream LStream;$/
+LUAI_THROW	src/ldo.c	/^#define LUAI_THROW(L,c)		throw(c)$/
+LUAI_TRY	src/ldo.c	/^#define LUAI_TRY(L,c,a) \\$/
+LUA_QL	src/luaconf.h	/^#define LUA_QL(x)	"'" x "'"$/
+LX	src/lstate.c	/^} LX;$/
+L_Umaxalign	src/llimits.h	/^typedef LUAI_USER_ALIGNMENT_T L_Umaxalign;$/
+Labeldesc	src/lparser.h	/^} Labeldesc;$/
+Labellist	src/lparser.h	/^} Labellist;$/
+LexState	src/llex.h	/^} LexState;$/
+LoadBlock	src/lundump.c	/^static void LoadBlock(LoadState* S, void* b, size_/
+LoadByte	src/lundump.c	/^#define LoadByte(S)		(lu_byte)LoadChar(S)$/
+LoadChar	src/lundump.c	/^static int LoadChar(LoadState* S)$/
+LoadCode	src/lundump.c	/^static void LoadCode(LoadState* S, Proto* f)$/
+LoadConstants	src/lundump.c	/^static void LoadConstants(LoadState* S, Proto* f)$/
+LoadDebug	src/lundump.c	/^static void LoadDebug(LoadState* S, Proto* f)$/
+LoadF	src/lauxlib.c	/^} LoadF;$/
+LoadFunction	src/lundump.c	/^static void LoadFunction(LoadState* S, Proto* f)$/
+LoadHeader	src/lundump.c	/^static void LoadHeader(LoadState* S)$/
+LoadInt	src/lundump.c	/^static int LoadInt(LoadState* S)$/
+LoadMem	src/lundump.c	/^#define LoadMem(S,b,n,size)	LoadBlock(S,b,(n)*(siz/
+LoadNumber	src/lundump.c	/^static lua_Number LoadNumber(LoadState* S)$/
+LoadS	src/lauxlib.c	/^} LoadS;$/
+LoadState	src/lundump.c	/^} LoadState;$/
+LoadString	src/lundump.c	/^static TString* LoadString(LoadState* S)$/
+LoadUpvalues	src/lundump.c	/^static void LoadUpvalues(LoadState* S, Proto* f)$/
+LoadVar	src/lundump.c	/^#define LoadVar(S,x)		LoadMem(S,&x,1,sizeof(x))$/
+LoadVector	src/lundump.c	/^#define LoadVector(S,b,n,size)	LoadMem(S,b,n,size)/
+LocVar	src/lobject.h	/^} LocVar;$/
+MASK	src/lctype.h	/^#define MASK(B)		(1 << (B))$/
+MASK0	src/lopcodes.h	/^#define MASK0(n,p)	(~MASK1(n,p))$/
+MASK1	src/lopcodes.h	/^#define MASK1(n,p)	((~((~(Instruction)0)<<(n)))<<(/
+MYINT	src/lundump.c	/^#define MYINT(s)	(s[0]-'0')$/
+MYK	src/luac.c	/^#define MYK(x)		(-1-(x))$/
+MatchState	src/lstrlib.c	/^} MatchState;$/
+Mbuffer	src/lzio.h	/^} Mbuffer;$/
+Mlua	src/lua.c	/^int main (int argc, char **argv) {$/
+Mluac	src/luac.c	/^int main(int argc, char* argv[])$/
+Node	src/lobject.h	/^} Node;$/
+OpArgMask	src/lopcodes.h	/^enum OpArgMask {$/
+OpCode	src/lopcodes.h	/^} OpCode;$/
+OpMode	src/lopcodes.h	/^enum OpMode {iABC, iABx, iAsBx, iAx};  \/* basic i/
+PrintCode	src/luac.c	/^static void PrintCode(const Proto* f)$/
+PrintConstant	src/luac.c	/^static void PrintConstant(const Proto* f, int i)$/
+PrintDebug	src/luac.c	/^static void PrintDebug(const Proto* f)$/
+PrintFunction	src/luac.c	/^static void PrintFunction(const Proto* f, int full/
+PrintHeader	src/luac.c	/^static void PrintHeader(const Proto* f)$/
+PrintString	src/luac.c	/^static void PrintString(const TString* ts)$/
+Protect	src/lvm.c	/^#define Protect(x)	{ {x;}; base = ci->u.l.base; }$/
+Proto	src/lobject.h	/^} Proto;$/
+RA	src/lvm.c	/^#define RA(i)	(base+GETARG_A(i))$/
+RB	src/lvm.c	/^#define RB(i)	check_exp(getBMode(GET_OPCODE(i)) ==/
+RC	src/lvm.c	/^#define RC(i)	check_exp(getCMode(GET_OPCODE(i)) ==/
+RESERVED	src/llex.h	/^enum RESERVED {$/
+RKASK	src/lopcodes.h	/^#define RKASK(x)	((x) | BITRK)$/
+RKB	src/lvm.c	/^#define RKB(i)	check_exp(getBMode(GET_OPCODE(i)) =/
+RKC	src/lvm.c	/^#define RKC(i)	check_exp(getCMode(GET_OPCODE(i)) =/
+S	src/luac.c	/^#define S(x)	(int)(x),SS(x)$/
+SETARG_A	src/lopcodes.h	/^#define SETARG_A(i,v)	setarg(i, v, POS_A, SIZE_A)$/
+SETARG_Ax	src/lopcodes.h	/^#define SETARG_Ax(i,v)	setarg(i, v, POS_Ax, SIZE_A/
+SETARG_B	src/lopcodes.h	/^#define SETARG_B(i,v)	setarg(i, v, POS_B, SIZE_B)$/
+SETARG_Bx	src/lopcodes.h	/^#define SETARG_Bx(i,v)	setarg(i, v, POS_Bx, SIZE_B/
+SETARG_C	src/lopcodes.h	/^#define SETARG_C(i,v)	setarg(i, v, POS_C, SIZE_C)$/
+SETARG_sBx	src/lopcodes.h	/^#define SETARG_sBx(i,b)	SETARG_Bx((i),cast(unsigne/
+SET_OPCODE	src/lopcodes.h	/^#define SET_OPCODE(i,o)	((i) = (((i)&MASK0(SIZE_OP/
+SParser	src/ldo.c	/^struct SParser {  \/* data to `f_parser' *\/$/
+SS	src/luac.c	/^#define SS(x)	((x==1)?"":"s")$/
+SemInfo	src/llex.h	/^} SemInfo;  \/* semantics information *\/$/
+StkId	src/lobject.h	/^typedef TValue *StkId;  \/* index to stack element/
+TKey	src/lobject.h	/^} TKey;$/
+TMS	src/ltm.h	/^} TMS;$/
+TString	src/lobject.h	/^} TString;$/
+TValue	src/lobject.h	/^typedef struct lua_TValue TValue;$/
+Table	src/lobject.h	/^} Table;$/
+Token	src/llex.h	/^} Token;$/
+UNUSED	src/llimits.h	/^#define UNUSED(x)	((void)(x))	\/* to avoid warning/
+UPVALNAME	src/luac.c	/^#define UPVALNAME(x) ((f->upvalues[x].name) ? gets/
+Udata	src/lobject.h	/^} Udata;$/
+UnOpr	src/lcode.h	/^typedef enum UnOpr { OPR_MINUS, OPR_NOT, OPR_LEN, /
+UpVal	src/lobject.h	/^} UpVal;$/
+Upvaldesc	src/lobject.h	/^} Upvaldesc;$/
+VOID	src/luac.c	/^#define VOID(p)		((const void*)(p))$/
+Value	src/lobject.h	/^typedef union Value Value;$/
+Vardesc	src/lparser.h	/^} Vardesc;$/
+ZIO	src/lzio.h	/^typedef struct Zio ZIO;$/
+Zio	src/lzio.h	/^struct Zio {$/
+add_s	src/lstrlib.c	/^static void add_s (MatchState *ms, luaL_Buffer *b,/
+add_value	src/lstrlib.c	/^static void add_value (MatchState *ms, luaL_Buffer/
+addbuff	src/lstate.c	/^#define addbuff(b,p,e) \\$/
+addfield	src/ltablib.c	/^static void addfield (lua_State *L, luaL_Buffer *b/
+addinfo	src/ldebug.c	/^static void addinfo (lua_State *L, const char *msg/
+addk	src/lcode.c	/^static int addk (FuncState *fs, TValue *key, TValu/
+addlenmod	src/lstrlib.c	/^static void addlenmod (char *form, const char *len/
+addprototype	src/lparser.c	/^static Proto *addprototype (LexState *ls) {$/
+addquoted	src/lstrlib.c	/^static void addquoted (lua_State *L, luaL_Buffer */
+addstr	src/lobject.c	/^#define addstr(a,b,l)	( memcpy(a,b,(l) * sizeof(ch/
+adjust_assign	src/lparser.c	/^static void adjust_assign (LexState *ls, int nvars/
+adjust_varargs	src/ldo.c	/^static StkId adjust_varargs (lua_State *L, Proto */
+adjustlocalvars	src/lparser.c	/^static void adjustlocalvars (LexState *ls, int nva/
+adjustresults	src/lapi.h	/^#define adjustresults(L,nres) \\$/
+anchor_token	src/lparser.c	/^static void anchor_token (LexState *ls) {$/
+andaux	src/lbitlib.c	/^static b_uint andaux (lua_State *L) {$/
+api_check	src/llimits.h	/^#define api_check(l,e,msg)	luai_apicheck(l,(e) && /
+api_checknelems	src/lapi.h	/^#define api_checknelems(L,n)	api_check(L, (n) < (L/
+api_checkstackindex	src/lapi.c	/^#define api_checkstackindex(L, i, o)  \\$/
+api_checkvalidindex	src/lapi.c	/^#define api_checkvalidindex(L, o)  api_check(L, is/
+api_incr_top	src/lapi.h	/^#define api_incr_top(L)   {L->top++; api_check(L, /
+ar	src/lua.h	/^typedef void (*lua_Hook) (lua_State *L, lua_Debug /
+arith_op	src/lvm.c	/^#define arith_op(op,tm) { \\$/
+arrayindex	src/ltable.c	/^static int arrayindex (const TValue *key) {$/
+assignment	src/lparser.c	/^static void assignment (LexState *ls, struct LHS_a/
+atomic	src/lgc.c	/^static l_mem atomic (lua_State *L) {$/
+aux_close	src/liolib.c	/^static int aux_close (lua_State *L) {$/
+aux_getn	src/ltablib.c	/^#define aux_getn(L,n)	(luaL_checktype(L, n, LUA_TT/
+aux_lines	src/liolib.c	/^static void aux_lines (lua_State *L, int toclose) /
+aux_upvalue	src/lapi.c	/^static const char *aux_upvalue (StkId fi, int n, T/
+auxgetinfo	src/ldebug.c	/^static int auxgetinfo (lua_State *L, const char *w/
+auxresume	src/lcorolib.c	/^static int auxresume (lua_State *L, lua_State *co,/
+auxsort	src/ltablib.c	/^static void auxsort (lua_State *L, int l, int u) {/
+auxupvalue	src/ldblib.c	/^static int auxupvalue (lua_State *L, int get) {$/
+b_and	src/lbitlib.c	/^static int b_and (lua_State *L) {$/
+b_arshift	src/lbitlib.c	/^static int b_arshift (lua_State *L) {$/
+b_extract	src/lbitlib.c	/^static int b_extract (lua_State *L) {$/
+b_lrot	src/lbitlib.c	/^static int b_lrot (lua_State *L) {$/
+b_lshift	src/lbitlib.c	/^static int b_lshift (lua_State *L) {$/
+b_not	src/lbitlib.c	/^static int b_not (lua_State *L) {$/
+b_or	src/lbitlib.c	/^static int b_or (lua_State *L) {$/
+b_replace	src/lbitlib.c	/^static int b_replace (lua_State *L) {$/
+b_rot	src/lbitlib.c	/^static int b_rot (lua_State *L, int i) {$/
+b_rrot	src/lbitlib.c	/^static int b_rrot (lua_State *L) {$/
+b_rshift	src/lbitlib.c	/^static int b_rshift (lua_State *L) {$/
+b_shift	src/lbitlib.c	/^static int b_shift (lua_State *L, b_uint r, int i)/
+b_test	src/lbitlib.c	/^static int b_test (lua_State *L) {$/
+b_uint	src/lbitlib.c	/^typedef lua_Unsigned b_uint;$/
+b_xor	src/lbitlib.c	/^static int b_xor (lua_State *L) {$/
+bit2mask	src/lgc.h	/^#define bit2mask(b1,b2)		(bitmask(b1) | bitmask(b2/
+bitmask	src/lgc.h	/^#define bitmask(b)		(1<<(b))$/
+black2gray	src/lgc.c	/^#define black2gray(x)	resetbit(gch(x)->marked, BLA/
+block	src/lparser.c	/^static void block (LexState *ls) {$/
+block_follow	src/lparser.c	/^static int block_follow (LexState *ls, int withunt/
+body	src/lparser.c	/^static void body (LexState *ls, expdesc *e, int is/
+boolK	src/lcode.c	/^static int boolK (FuncState *fs, int b) {$/
+breaklabel	src/lparser.c	/^static void breaklabel (LexState *ls) {$/
+buff2d	src/llex.c	/^#define buff2d(b,e)	luaO_str2d(luaZ_buffer(b), lua/
+buffonstack	src/lauxlib.c	/^#define buffonstack(B)	((B)->b != (B)->initb)$/
+buffreplace	src/llex.c	/^static void buffreplace (LexState *ls, char from, /
+bvalue	src/lobject.h	/^#define bvalue(o)	check_exp(ttisboolean(o), val_(o/
+callTM	src/lvm.c	/^static void callTM (lua_State *L, const TValue *f,/
+call_binTM	src/lvm.c	/^static int call_binTM (lua_State *L, const TValue /
+call_orderTM	src/lvm.c	/^static int call_orderTM (lua_State *L, const TValu/
+callallpendingfinalizers	src/lgc.c	/^static void callallpendingfinalizers (lua_State *L/
+callhook	src/ldo.c	/^static void callhook (lua_State *L, CallInfo *ci) /
+cannot	src/luac.c	/^static void cannot(const char* what)$/
+capture_to_close	src/lstrlib.c	/^static int capture_to_close (MatchState *ms) {$/
+cast	src/llimits.h	/^#define cast(t, exp)	((t)(exp))$/
+cast_byte	src/llimits.h	/^#define cast_byte(i)	cast(lu_byte, (i))$/
+cast_int	src/llimits.h	/^#define cast_int(i)	cast(int, (i))$/
+cast_num	src/llimits.h	/^#define cast_num(i)	cast(lua_Number, (i))$/
+cast_uchar	src/llimits.h	/^#define cast_uchar(i)	cast(unsigned char, (i))$/
+changewhite	src/lgc.h	/^#define changewhite(x)	((x)->gch.marked ^= WHITEBI/
+check	src/lparser.c	/^static void check (LexState *ls, int c) {$/
+checkGC	src/lvm.c	/^#define checkGC(L,c)  \\$/
+checkSizes	src/lgc.c	/^static void checkSizes (lua_State *L) {$/
+check_capture	src/lstrlib.c	/^static int check_capture (MatchState *ms, int l) {/
+check_condition	src/lparser.c	/^#define check_condition(ls,c,msg)	{ if (!(c)) luaX/
+check_conflict	src/lparser.c	/^static void check_conflict (LexState *ls, struct L/
+check_exp	src/llimits.h	/^#define check_exp(c,e)		(lua_assert(c), (e))$/
+check_match	src/lparser.c	/^static void check_match (LexState *ls, int what, i/
+check_next	src/llex.c	/^static int check_next (LexState *ls, const char *s/
+checkconsistency	src/lgc.c	/^#define checkconsistency(obj)  \\$/
+checkdeadkey	src/lgc.c	/^#define checkdeadkey(n)	lua_assert(!ttisdeadkey(gk/
+checklimit	src/lparser.c	/^static void checklimit (FuncState *fs, int v, int /
+checkliveness	src/lobject.h	/^#define checkliveness(g,obj) \\$/
+checkload	src/loadlib.c	/^static int checkload (lua_State *L, int stat, cons/
+checkmode	src/ldo.c	/^static void checkmode (lua_State *L, const char *m/
+checkname	src/lparser.c	/^static void checkname (LexState *ls, expdesc *e) {/
+checknext	src/lparser.c	/^static void checknext (LexState *ls, int c) {$/
+checkoption	src/loslib.c	/^static const char *checkoption (lua_State *L, cons/
+checkrepeated	src/lparser.c	/^static void checkrepeated (FuncState *fs, Labellis/
+checkresults	src/lapi.c	/^#define checkresults(L,na,nr) \\$/
+checktag	src/lobject.h	/^#define checktag(o,t)		(rttype(o) == (t))$/
+checktype	src/lobject.h	/^#define checktype(o,t)		(ttypenv(o) == (t))$/
+checkupval	src/ldblib.c	/^static int checkupval (lua_State *L, int argf, int/
+ci_func	src/ldebug.h	/^#define ci_func(ci)		(clLvalue((ci)->func))$/
+clCvalue	src/lobject.h	/^#define clCvalue(o)	check_exp(ttisCclosure(o), &va/
+clLvalue	src/lobject.h	/^#define clLvalue(o)	check_exp(ttisLclosure(o), &va/
+classend	src/lstrlib.c	/^static const char *classend (MatchState *ms, const/
+clearkeys	src/lgc.c	/^static void clearkeys (global_State *g, GCObject */
+clearvalues	src/lgc.c	/^static void clearvalues (global_State *g, GCObject/
+close_func	src/lparser.c	/^static void close_func (LexState *ls) {$/
+close_state	src/lstate.c	/^static void close_state (lua_State *L) {$/
+closegoto	src/lparser.c	/^static void closegoto (LexState *ls, int g, Labeld/
+closelistfield	src/lparser.c	/^static void closelistfield (FuncState *fs, struct /
+clvalue	src/lobject.h	/^#define clvalue(o)	check_exp(ttisclosure(o), &val_/
+code_label	src/lcode.c	/^static int code_label (FuncState *fs, int A, int b/
+codearith	src/lcode.c	/^static void codearith (FuncState *fs, OpCode op,$/
+codeclosure	src/lparser.c	/^static void codeclosure (LexState *ls, expdesc *v)/
+codecomp	src/lcode.c	/^static void codecomp (FuncState *fs, OpCode op, in/
+codeextraarg	src/lcode.c	/^static int codeextraarg (FuncState *fs, int a) {$/
+codenot	src/lcode.c	/^static void codenot (FuncState *fs, expdesc *e) {$/
+codestring	src/lparser.c	/^static void codestring (LexState *ls, expdesc *e, /
+collectargs	src/lua.c	/^static int collectargs (char **argv, int *args) {$/
+collectvalidlines	src/ldebug.c	/^static void collectvalidlines (lua_State *L, Closu/
+combine	src/luac.c	/^static const Proto* combine(lua_State* L, int n)$/
+computesizes	src/ltable.c	/^static int computesizes (int nums[], int *narray) /
+cond	src/lparser.c	/^static int cond (LexState *ls) {$/
+condchangemem	src/llimits.h	/^#define condchangemem(L)	condmovestack(L)$/
+condjump	src/lcode.c	/^static int condjump (FuncState *fs, OpCode op, int/
+condmovestack	src/llimits.h	/^#define condmovestack(L)	((void)0)$/
+constfolding	src/lcode.c	/^static int constfolding (OpCode op, expdesc *e1, e/
+constructor	src/lparser.c	/^static void constructor (LexState *ls, expdesc *t)/
+convergeephemerons	src/lgc.c	/^static void convergeephemerons (global_State *g) {/
+correctstack	src/ldo.c	/^static void correctstack (lua_State *L, TValue *ol/
+countint	src/ltable.c	/^static int countint (const TValue *key, int *nums)/
+countlevels	src/lauxlib.c	/^static int countlevels (lua_State *L) {$/
+createmeta	src/liolib.c	/^static void createmeta (lua_State *L) {$/
+createmetatable	src/lstrlib.c	/^static void createmetatable (lua_State *L) {$/
+createsearcherstable	src/loadlib.c	/^static void createsearcherstable (lua_State *L) {$/
+createstdfile	src/liolib.c	/^static void createstdfile (lua_State *L, FILE *f, /
+createstrobj	src/lstring.c	/^static TString *createstrobj (lua_State *L, const /
+ctb	src/lobject.h	/^#define ctb(t)			((t) | BIT_ISCOLLECTABLE)$/
+currIsNewline	src/llex.c	/^#define currIsNewline(ls)	(ls->current == '\\n' ||/
+currentline	src/ldebug.c	/^static int currentline (CallInfo *ci) {$/
+currentpc	src/ldebug.c	/^static int currentpc (CallInfo *ci) {$/
+d_	src/lobject.h	/^#define d_(o)		((o)->u.d__)$/
+db_debug	src/ldblib.c	/^static int db_debug (lua_State *L) {$/
+db_gethook	src/ldblib.c	/^static int db_gethook (lua_State *L) {$/
+db_getinfo	src/ldblib.c	/^static int db_getinfo (lua_State *L) {$/
+db_getlocal	src/ldblib.c	/^static int db_getlocal (lua_State *L) {$/
+db_getmetatable	src/ldblib.c	/^static int db_getmetatable (lua_State *L) {$/
+db_getregistry	src/ldblib.c	/^static int db_getregistry (lua_State *L) {$/
+db_getupvalue	src/ldblib.c	/^static int db_getupvalue (lua_State *L) {$/
+db_getuservalue	src/ldblib.c	/^static int db_getuservalue (lua_State *L) {$/
+db_sethook	src/ldblib.c	/^static int db_sethook (lua_State *L) {$/
+db_setlocal	src/ldblib.c	/^static int db_setlocal (lua_State *L) {$/
+db_setmetatable	src/ldblib.c	/^static int db_setmetatable (lua_State *L) {$/
+db_setupvalue	src/ldblib.c	/^static int db_setupvalue (lua_State *L) {$/
+db_setuservalue	src/ldblib.c	/^static int db_setuservalue (lua_State *L) {$/
+db_traceback	src/ldblib.c	/^static int db_traceback (lua_State *L) {$/
+db_upvalueid	src/ldblib.c	/^static int db_upvalueid (lua_State *L) {$/
+db_upvaluejoin	src/ldblib.c	/^static int db_upvaluejoin (lua_State *L) {$/
+deadvalue	src/lobject.h	/^#define deadvalue(o)	check_exp(ttisdeadkey(o), cas/
+discharge2anyreg	src/lcode.c	/^static void discharge2anyreg (FuncState *fs, expde/
+discharge2reg	src/lcode.c	/^static void discharge2reg (FuncState *fs, expdesc /
+dischargejpc	src/lcode.c	/^static void dischargejpc (FuncState *fs) {$/
+doargs	src/luac.c	/^static int doargs(int argc, char* argv[])$/
+docall	src/lua.c	/^static int docall (lua_State *L, int narg, int nre/
+dofile	src/lua.c	/^static int dofile (lua_State *L, const char *name)/
+dofilecont	src/lbaselib.c	/^static int dofilecont (lua_State *L) {$/
+dojump	src/lvm.c	/^#define dojump(ci,i,e) \\$/
+dolibrary	src/lua.c	/^static int dolibrary (lua_State *L, const char *na/
+donextjump	src/lvm.c	/^#define donextjump(ci)	{ i = *ci->u.l.savedpc; doj/
+dooptions	src/loadlib.c	/^static void dooptions (lua_State *L, int n) {$/
+dostring	src/lua.c	/^static int dostring (lua_State *L, const char *s, /
+dothecall	src/lgc.c	/^static void dothecall (lua_State *L, void *ud) {$/
+dotty	src/lua.c	/^static void dotty (lua_State *L) {$/
+end_capture	src/lstrlib.c	/^static const char *end_capture (MatchState *ms, co/
+enterblock	src/lparser.c	/^static void enterblock (FuncState *fs, BlockCnt *b/
+enterlevel	src/lparser.c	/^static void enterlevel (LexState *ls) {$/
+entersweep	src/lgc.c	/^static int entersweep (lua_State *L) {$/
+eqshrstr	src/lstring.h	/^#define eqshrstr(a,b)	check_exp((a)->tsv.tt == LUA/
+equalobj	src/lvm.h	/^#define equalobj(L,o1,o2)  (ttisequal(o1, o2) && l/
+errfile	src/lauxlib.c	/^static int errfile (lua_State *L, const char *what/
+error	src/lundump.c	/^static l_noret error(LoadState* S, const char* why/
+error_expected	src/lparser.c	/^static l_noret error_expected (LexState *ls, int t/
+errorlimit	src/lparser.c	/^static l_noret errorlimit (FuncState *fs, int limi/
+escerror	src/llex.c	/^static void escerror (LexState *ls, int *c, int n,/
+exp1	src/lparser.c	/^static int exp1 (LexState *ls) {$/
+exp2reg	src/lcode.c	/^static void exp2reg (FuncState *fs, expdesc *e, in/
+expdesc	src/lparser.h	/^} expdesc;$/
+expkind	src/lparser.h	/^} expkind;$/
+explist	src/lparser.c	/^static int explist (LexState *ls, expdesc *v) {$/
+expr	src/lparser.c	/^static void expr (LexState *ls, expdesc *v) {$/
+exprstat	src/lparser.c	/^static void exprstat (LexState *ls) {$/
+f_call	src/lapi.c	/^static void f_call (lua_State *L, void *ud) {$/
+f_flush	src/liolib.c	/^static int f_flush (lua_State *L) {$/
+f_gc	src/liolib.c	/^static int f_gc (lua_State *L) {$/
+f_lines	src/liolib.c	/^static int f_lines (lua_State *L) {$/
+f_luaopen	src/lstate.c	/^static void f_luaopen (lua_State *L, void *ud) {$/
+f_parser	src/ldo.c	/^static void f_parser (lua_State *L, void *ud) {$/
+f_read	src/liolib.c	/^static int f_read (lua_State *L) {$/
+f_seek	src/liolib.c	/^static int f_seek (lua_State *L) {$/
+f_setvbuf	src/liolib.c	/^static int f_setvbuf (lua_State *L) {$/
+f_tostring	src/liolib.c	/^static int f_tostring (lua_State *L) {$/
+f_write	src/liolib.c	/^static int f_write (lua_State *L) {$/
+fasttm	src/ltm.h	/^#define fasttm(l,et,e)	gfasttm(G(l), et, e)$/
+fatal	src/luac.c	/^static void fatal(const char* message)$/
+field	src/lparser.c	/^static void field (LexState *ls, struct ConsContro/
+fieldargs	src/lbitlib.c	/^static int fieldargs (lua_State *L, int farg, int /
+fieldsel	src/lparser.c	/^static void fieldsel (LexState *ls, expdesc *v) {$/
+filterpc	src/ldebug.c	/^static int filterpc (int pc, int jmptarget) {$/
+finalreport	src/lua.c	/^static void finalreport (lua_State *L, int status)/
+findfield	src/lauxlib.c	/^static int findfield (lua_State *L, int objidx, in/
+findfile	src/loadlib.c	/^static const char *findfile (lua_State *L, const c/
+findgotos	src/lparser.c	/^static void findgotos (LexState *ls, Labeldesc *lb/
+findindex	src/ltable.c	/^static int findindex (lua_State *L, Table *t, StkI/
+findlabel	src/lparser.c	/^static int findlabel (LexState *ls, int g) {$/
+findloader	src/loadlib.c	/^static void findloader (lua_State *L, const char */
+findlocal	src/ldebug.c	/^static const char *findlocal (lua_State *L, CallIn/
+findpcall	src/ldo.c	/^static CallInfo *findpcall (lua_State *L) {$/
+findsetreg	src/ldebug.c	/^static int findsetreg (Proto *p, int lastpc, int r/
+findvararg	src/ldebug.c	/^static const char *findvararg (CallInfo *ci, int n/
+finishCcall	src/ldo.c	/^static void finishCcall (lua_State *L) {$/
+finishpcall	src/lbaselib.c	/^static int finishpcall (lua_State *L, int status) /
+fixjump	src/lcode.c	/^static void fixjump (FuncState *fs, int pc, int de/
+forbody	src/lparser.c	/^static void forbody (LexState *ls, int base, int l/
+forlist	src/lparser.c	/^static void forlist (LexState *ls, TString *indexn/
+fornum	src/lparser.c	/^static void fornum (LexState *ls, TString *varname/
+forstat	src/lparser.c	/^static void forstat (LexState *ls, int line) {$/
+freeexp	src/lcode.c	/^static void freeexp (FuncState *fs, expdesc *e) {$/
+freeobj	src/lgc.c	/^static void freeobj (lua_State *L, GCObject *o) {$/
+freereg	src/lcode.c	/^static void freereg (FuncState *fs, int reg) {$/
+freestack	src/lstate.c	/^static void freestack (lua_State *L) {$/
+fromstate	src/lstate.c	/^#define fromstate(L)	(cast(LX *, cast(lu_byte *, (/
+funcargs	src/lparser.c	/^static void funcargs (LexState *ls, expdesc *f, in/
+funcinfo	src/ldebug.c	/^static void funcinfo (lua_Debug *ar, Closure *cl) /
+funcname	src/lparser.c	/^static int funcname (LexState *ls, expdesc *v) {$/
+funcstat	src/lparser.c	/^static void funcstat (LexState *ls, int line) {$/
+fvalue	src/lobject.h	/^#define fvalue(o)	check_exp(ttislcf(o), val_(o).f)/
+g_iofile	src/liolib.c	/^static int g_iofile (lua_State *L, const char *f, /
+g_read	src/liolib.c	/^static int g_read (lua_State *L, FILE *f, int firs/
+g_write	src/liolib.c	/^static int g_write (lua_State *L, FILE *f, int arg/
+gch	src/lstate.h	/^#define gch(o)		(&(o)->gch)$/
+gco2ccl	src/lstate.h	/^#define gco2ccl(o)	check_exp((o)->gch.tt == LUA_TC/
+gco2cl	src/lstate.h	/^#define gco2cl(o)  \\$/
+gco2lcl	src/lstate.h	/^#define gco2lcl(o)	check_exp((o)->gch.tt == LUA_TL/
+gco2p	src/lstate.h	/^#define gco2p(o)	check_exp((o)->gch.tt == LUA_TPRO/
+gco2t	src/lstate.h	/^#define gco2t(o)	check_exp((o)->gch.tt == LUA_TTAB/
+gco2th	src/lstate.h	/^#define gco2th(o)	check_exp((o)->gch.tt == LUA_TTH/
+gco2ts	src/lstate.h	/^#define gco2ts(o)	(&rawgco2ts(o)->tsv)$/
+gco2u	src/lstate.h	/^#define gco2u(o)	(&rawgco2u(o)->uv)$/
+gco2uv	src/lstate.h	/^#define gco2uv(o)	check_exp((o)->gch.tt == LUA_TUP/
+gctm	src/loadlib.c	/^static int gctm (lua_State *L) {$/
+gcvalue	src/lobject.h	/^#define gcvalue(o)	check_exp(iscollectable(o), val/
+generationalcollection	src/lgc.c	/^static void generationalcollection (lua_State *L) /
+generic_reader	src/lbaselib.c	/^static const char *generic_reader (lua_State *L, v/
+getBMode	src/lopcodes.h	/^#define getBMode(m)	(cast(enum OpArgMask, (luaP_op/
+getCMode	src/lopcodes.h	/^#define getCMode(m)	(cast(enum OpArgMask, (luaP_op/
+getF	src/lauxlib.c	/^static const char *getF (lua_State *L, void *ud, s/
+getOpMode	src/lopcodes.h	/^#define getOpMode(m)	(cast(enum OpMode, luaP_opmod/
+getS	src/lauxlib.c	/^static const char *getS (lua_State *L, void *ud, s/
+get_equalTM	src/lvm.c	/^static const TValue *get_equalTM (lua_State *L, Ta/
+get_prompt	src/lua.c	/^static const char *get_prompt (lua_State *L, int f/
+getarg	src/lopcodes.h	/^#define getarg(i,pos,size)	(cast(int, ((i)>>pos) &/
+getargs	src/lua.c	/^static int getargs (lua_State *L, char **argv, int/
+getbinopr	src/lparser.c	/^static BinOpr getbinopr (int op) {$/
+getboolfield	src/loslib.c	/^static int getboolfield (lua_State *L, const char /
+getcached	src/lvm.c	/^static Closure *getcached (Proto *p, UpVal **encup/
+getcode	src/lcode.h	/^#define getcode(fs,e)	((fs)->f->code[(e)->u.info])/
+getfield	src/loslib.c	/^static int getfield (lua_State *L, const char *key/
+getfreepos	src/ltable.c	/^static Node *getfreepos (Table *t) {$/
+getfuncline	src/ldebug.h	/^#define getfuncline(f,pc)	(((f)->lineinfo) ? (f)->/
+getfuncname	src/ldebug.c	/^static const char *getfuncname (lua_State *L, Call/
+gethooktable	src/ldblib.c	/^#define gethooktable(L)	luaL_getsubtable(L, LUA_RE/
+getiofile	src/liolib.c	/^static FILE *getiofile (lua_State *L, const char */
+getjump	src/lcode.c	/^static int getjump (FuncState *fs, int pc) {$/
+getjumpcontrol	src/lcode.c	/^static Instruction *getjumpcontrol (FuncState *fs,/
+getlocaledecpoint	src/llex.c	/^#define getlocaledecpoint()	(localeconv()->decimal/
+getlocvar	src/lparser.c	/^static LocVar *getlocvar (FuncState *fs, int i) {$/
+getobjname	src/ldebug.c	/^static const char *getobjname (Proto *p, int lastp/
+getproto	src/lobject.h	/^#define getproto(o)	(clLvalue(o)->p)$/
+getstr	src/lobject.h	/^#define getstr(ts)	cast(const char *, (ts) + 1)$/
+getthread	src/ldblib.c	/^static lua_State *getthread (lua_State *L, int *ar/
+gettotalbytes	src/lstate.h	/^#define gettotalbytes(g)	((g)->totalbytes + (g)->G/
+getunopr	src/lparser.c	/^static UnOpr getunopr (int op) {$/
+getupvalname	src/ldebug.c	/^static const char *getupvalname (CallInfo *ci, con/
+getupvalref	src/lapi.c	/^static UpVal **getupvalref (lua_State *L, int fidx/
+gfasttm	src/ltm.h	/^#define gfasttm(g,et,e) ((et) == NULL ? NULL : \\$/
+gkey	src/ltable.h	/^#define gkey(n)		(&(n)->i_key.tvk)$/
+global_State	src/lstate.h	/^} global_State;$/
+gmatch	src/lstrlib.c	/^static int gmatch (lua_State *L) {$/
+gmatch_aux	src/lstrlib.c	/^static int gmatch_aux (lua_State *L) {$/
+gnext	src/ltable.h	/^#define gnext(n)	((n)->i_key.nk.next)$/
+gnode	src/ltable.h	/^#define gnode(t,i)	(&(t)->node[i])$/
+gnodelast	src/lgc.c	/^#define gnodelast(h)	gnode(h, cast(size_t, sizenod/
+gotostat	src/lparser.c	/^static void gotostat (LexState *ls, int pc) {$/
+gray2black	src/lgc.h	/^#define gray2black(x)	l_setbit((x)->gch.marked, BL/
+growstack	src/lapi.c	/^static void growstack (lua_State *L, void *ud) {$/
+gval	src/ltable.h	/^#define gval(n)		(&(n)->i_val)$/
+handle_luainit	src/lua.c	/^static int handle_luainit (lua_State *L) {$/
+handle_script	src/lua.c	/^static int handle_script (lua_State *L, char **arg/
+hashboolean	src/ltable.c	/^#define hashboolean(t,p)	hashpow2(t, p)$/
+hashmod	src/ltable.c	/^#define hashmod(t,n)	(gnode(t, ((n) % ((sizenode(t/
+hashnum	src/ltable.c	/^static Node *hashnum (const Table *t, lua_Number n/
+hashpointer	src/ltable.c	/^#define hashpointer(t,p)	hashmod(t, IntPoint(p))$/
+hashpow2	src/ltable.c	/^#define hashpow2(t,n)		(gnode(t, lmod((n), sizenod/
+hashstr	src/ltable.c	/^#define hashstr(t,str)		hashpow2(t, (str)->tsv.has/
+hasjumps	src/lcode.c	/^#define hasjumps(e)	((e)->t != (e)->f)$/
+hasmultret	src/lparser.c	/^#define hasmultret(k)		((k) == VCALL || (k) == VVA/
+hookf	src/ldblib.c	/^static void hookf (lua_State *L, lua_Debug *ar) {$/
+hvalue	src/lobject.h	/^#define hvalue(o)	check_exp(ttistable(o), &val_(o)/
+ifstat	src/lparser.c	/^static void ifstat (LexState *ls, int line) {$/
+inclinenumber	src/llex.c	/^static void inclinenumber (LexState *ls) {$/
+incomplete	src/lua.c	/^static int incomplete (lua_State *L, int status) {/
+incr_top	src/ldo.h	/^#define incr_top(L) {L->top++; luaD_checkstack(L,0/
+incstep	src/lgc.c	/^static void incstep (lua_State *L) {$/
+index2addr	src/lapi.c	/^static TValue *index2addr (lua_State *L, int idx) /
+init_exp	src/lparser.c	/^static void init_exp (expdesc *e, expkind k, int i/
+init_registry	src/lstate.c	/^static void init_registry (lua_State *L, global_St/
+inspectstat	src/lauxlib.c	/^#define inspectstat(stat,what)  \\$/
+internshrstr	src/lstring.c	/^static TString *internshrstr (lua_State *L, const /
+invalidateTMcache	src/ltable.h	/^#define invalidateTMcache(t)	((t)->flags = 0)$/
+invertjump	src/lcode.c	/^static void invertjump (FuncState *fs, expdesc *e)/
+io_close	src/liolib.c	/^static int io_close (lua_State *L) {$/
+io_fclose	src/liolib.c	/^static int io_fclose (lua_State *L) {$/
+io_flush	src/liolib.c	/^static int io_flush (lua_State *L) {$/
+io_input	src/liolib.c	/^static int io_input (lua_State *L) {$/
+io_lines	src/liolib.c	/^static int io_lines (lua_State *L) {$/
+io_noclose	src/liolib.c	/^static int io_noclose (lua_State *L) {$/
+io_open	src/liolib.c	/^static int io_open (lua_State *L) {$/
+io_output	src/liolib.c	/^static int io_output (lua_State *L) {$/
+io_pclose	src/liolib.c	/^static int io_pclose (lua_State *L) {$/
+io_popen	src/liolib.c	/^static int io_popen (lua_State *L) {$/
+io_read	src/liolib.c	/^static int io_read (lua_State *L) {$/
+io_readline	src/liolib.c	/^static int io_readline (lua_State *L) {$/
+io_tmpfile	src/liolib.c	/^static int io_tmpfile (lua_State *L) {$/
+io_type	src/liolib.c	/^static int io_type (lua_State *L) {$/
+io_write	src/liolib.c	/^static int io_write (lua_State *L) {$/
+ipairsaux	src/lbaselib.c	/^static int ipairsaux (lua_State *L) {$/
+isLfunction	src/lobject.h	/^#define isLfunction(o)	ttisLclosure(o)$/
+isLua	src/lstate.h	/^#define isLua(ci)	((ci)->callstatus & CIST_LUA)$/
+isblack	src/lgc.h	/^#define isblack(x)      testbit((x)->gch.marked, B/
+iscleared	src/lgc.c	/^static int iscleared (global_State *g, const TValu/
+isclosed	src/liolib.c	/^#define isclosed(p)	((p)->closef == NULL)$/
+iscollectable	src/lobject.h	/^#define iscollectable(o)	(rttype(o) & BIT_ISCOLLEC/
+isdead	src/lgc.h	/^#define isdead(g,v)	isdeadm(otherwhite(g), (v)->gc/
+isdeadm	src/lgc.h	/^#define isdeadm(ow,m)	(!(((m) ^ WHITEBITS) & (ow))/
+isdummy	src/ltable.c	/^#define isdummy(n)		((n) == dummynode)$/
+isfinalized	src/lgc.c	/^#define isfinalized(x)		testbit(gch(x)->marked, FI/
+isgenerational	src/lgc.h	/^#define isgenerational(g)	((g)->gckind == KGC_GEN)/
+isgray	src/lgc.h	/^#define isgray(x)  \/* neither white nor black *\//
+isinstack	src/ldebug.c	/^static int isinstack (CallInfo *ci, const TValue */
+isneg	src/lobject.c	/^static int isneg (const char **s) {$/
+isnumeral	src/lcode.c	/^static int isnumeral(expdesc *e) {$/
+isold	src/lgc.h	/^#define isold(x)	testbit((x)->gch.marked, OLDBIT)$/
+ispseudo	src/lapi.c	/^#define ispseudo(i)		((i) <= LUA_REGISTRYINDEX)$/
+isreserved	src/lstring.h	/^#define isreserved(s)	((s)->tsv.tt == LUA_TSHRSTR /
+isstackindex	src/lapi.c	/^#define isstackindex(i, o)	(isvalid(o) && !ispseud/
+issweepphase	src/lgc.h	/^#define issweepphase(g)  \\$/
+isvalid	src/lapi.c	/^#define isvalid(o)	((o) != luaO_nilobject)$/
+iswhite	src/lgc.h	/^#define iswhite(x)      testbits((x)->gch.marked, /
+jumponcond	src/lcode.c	/^static int jumponcond (FuncState *fs, expdesc *e, /
+keepinvariant	src/lgc.h	/^#define keepinvariant(g)	(isgenerational(g) || g->/
+keepinvariantout	src/lgc.h	/^#define keepinvariantout(g)  \\$/
+keyfromval	src/ltable.h	/^#define keyfromval(v) \\$/
+kname	src/ldebug.c	/^static void kname (Proto *p, int pc, int c, const /
+l_alloc	src/lauxlib.c	/^static void *l_alloc (void *ud, void *ptr, size_t /
+l_fseek	src/liolib.c	/^#define l_fseek(f,o,w)		fseeko(f,o,w)$/
+l_ftell	src/liolib.c	/^#define l_ftell(f)		ftello(f)$/
+l_gmtime	src/loslib.c	/^#define l_gmtime(t,r)		gmtime_r(t,r)$/
+l_isfalse	src/lobject.h	/^#define l_isfalse(o)	(ttisnil(o) || (ttisboolean(o/
+l_localtime	src/loslib.c	/^#define l_localtime(t,r)	localtime_r(t,r)$/
+l_mathop	src/luaconf.h	/^#define l_mathop(x)		(x)$/
+l_mem	src/llimits.h	/^typedef LUAI_MEM l_mem;$/
+l_message	src/lua.c	/^static void l_message (const char *pname, const ch/
+l_setbit	src/lgc.h	/^#define l_setbit(x,b)		setbits(x, bitmask(b))$/
+l_strcmp	src/lvm.c	/^static int l_strcmp (const TString *ls, const TStr/
+l_uacNumber	src/llimits.h	/^typedef LUAI_UACNUMBER l_uacNumber;$/
+labelstat	src/lparser.c	/^static void labelstat (LexState *ls, TString *labe/
+laction	src/lua.c	/^static void laction (int i) {$/
+lastlistfield	src/lparser.c	/^static void lastlistfield (FuncState *fs, struct C/
+leaveblock	src/lparser.c	/^static void leaveblock (FuncState *fs) {$/
+leavelevel	src/lparser.c	/^#define leavelevel(ls)	((ls)->L->nCcalls--)$/
+lexerror	src/llex.c	/^static l_noret lexerror (LexState *ls, const char /
+libsize	src/lauxlib.c	/^static int libsize (const luaL_Reg *l) {$/
+linktable	src/lgc.c	/^#define linktable(h,p)	((h)->gclist = *(p), *(p) =/
+lisdigit	src/lctype.h	/^#define lisdigit(c)	testprop(c, MASK(DIGITBIT))$/
+lislalnum	src/lctype.h	/^#define lislalnum(c)	testprop(c, (MASK(ALPHABIT) |/
+lislalpha	src/lctype.h	/^#define lislalpha(c)	testprop(c, MASK(ALPHABIT))$/
+lisprint	src/lctype.h	/^#define lisprint(c)	testprop(c, MASK(PRINTBIT))$/
+lisspace	src/lctype.h	/^#define lisspace(c)	testprop(c, MASK(SPACEBIT))$/
+listfield	src/lparser.c	/^static void listfield (LexState *ls, struct ConsCo/
+lisxdigit	src/lctype.h	/^#define lisxdigit(c)	testprop(c, MASK(XDIGITBIT))$/
+ll_addtoclib	src/loadlib.c	/^static void ll_addtoclib (lua_State *L, const char/
+ll_checkclib	src/loadlib.c	/^static void *ll_checkclib (lua_State *L, const cha/
+ll_load	src/loadlib.c	/^static void *ll_load (lua_State *L, const char *pa/
+ll_loadfunc	src/loadlib.c	/^static int ll_loadfunc (lua_State *L, const char */
+ll_loadlib	src/loadlib.c	/^static int ll_loadlib (lua_State *L) {$/
+ll_module	src/loadlib.c	/^static int ll_module (lua_State *L) {$/
+ll_require	src/loadlib.c	/^static int ll_require (lua_State *L) {$/
+ll_searchpath	src/loadlib.c	/^static int ll_searchpath (lua_State *L) {$/
+ll_seeall	src/loadlib.c	/^static int ll_seeall (lua_State *L) {$/
+ll_sym	src/loadlib.c	/^static lua_CFunction ll_sym (lua_State *L, void *l/
+ll_unloadlib	src/loadlib.c	/^static void ll_unloadlib (void *lib) {$/
+llex	src/llex.c	/^static int llex (LexState *ls, SemInfo *seminfo) {/
+lmemfind	src/lstrlib.c	/^static const char *lmemfind (const char *s1, size_/
+lmod	src/lobject.h	/^#define lmod(s,size) \\$/
+load_aux	src/lbaselib.c	/^static int load_aux (lua_State *L, int status, int/
+loadfunc	src/loadlib.c	/^static int loadfunc (lua_State *L, const char *fil/
+loadline	src/lua.c	/^static int loadline (lua_State *L) {$/
+localfunc	src/lparser.c	/^static void localfunc (LexState *ls) {$/
+localstat	src/lparser.c	/^static void localstat (LexState *ls) {$/
+lstop	src/lua.c	/^static void lstop (lua_State *L, lua_Debug *ar) {$/
+ltolower	src/lctype.h	/^#define ltolower(c)	((c) | ('A' ^ 'a'))$/
+lu_byte	src/llimits.h	/^typedef unsigned char lu_byte;$/
+lu_int32	src/llimits.h	/^typedef unsigned LUA_INT32 lu_int32;$/
+lu_mem	src/llimits.h	/^typedef LUAI_UMEM lu_mem;$/
+luaB_assert	src/lbaselib.c	/^static int luaB_assert (lua_State *L) {$/
+luaB_auxwrap	src/lcorolib.c	/^static int luaB_auxwrap (lua_State *L) {$/
+luaB_cocreate	src/lcorolib.c	/^static int luaB_cocreate (lua_State *L) {$/
+luaB_collectgarbage	src/lbaselib.c	/^static int luaB_collectgarbage (lua_State *L) {$/
+luaB_coresume	src/lcorolib.c	/^static int luaB_coresume (lua_State *L) {$/
+luaB_corunning	src/lcorolib.c	/^static int luaB_corunning (lua_State *L) {$/
+luaB_costatus	src/lcorolib.c	/^static int luaB_costatus (lua_State *L) {$/
+luaB_cowrap	src/lcorolib.c	/^static int luaB_cowrap (lua_State *L) {$/
+luaB_dofile	src/lbaselib.c	/^static int luaB_dofile (lua_State *L) {$/
+luaB_error	src/lbaselib.c	/^static int luaB_error (lua_State *L) {$/
+luaB_getmetatable	src/lbaselib.c	/^static int luaB_getmetatable (lua_State *L) {$/
+luaB_ipairs	src/lbaselib.c	/^static int luaB_ipairs (lua_State *L) {$/
+luaB_load	src/lbaselib.c	/^static int luaB_load (lua_State *L) {$/
+luaB_loadfile	src/lbaselib.c	/^static int luaB_loadfile (lua_State *L) {$/
+luaB_next	src/lbaselib.c	/^static int luaB_next (lua_State *L) {$/
+luaB_pairs	src/lbaselib.c	/^static int luaB_pairs (lua_State *L) {$/
+luaB_pcall	src/lbaselib.c	/^static int luaB_pcall (lua_State *L) {$/
+luaB_print	src/lbaselib.c	/^static int luaB_print (lua_State *L) {$/
+luaB_rawequal	src/lbaselib.c	/^static int luaB_rawequal (lua_State *L) {$/
+luaB_rawget	src/lbaselib.c	/^static int luaB_rawget (lua_State *L) {$/
+luaB_rawlen	src/lbaselib.c	/^static int luaB_rawlen (lua_State *L) {$/
+luaB_rawset	src/lbaselib.c	/^static int luaB_rawset (lua_State *L) {$/
+luaB_select	src/lbaselib.c	/^static int luaB_select (lua_State *L) {$/
+luaB_setmetatable	src/lbaselib.c	/^static int luaB_setmetatable (lua_State *L) {$/
+luaB_tonumber	src/lbaselib.c	/^static int luaB_tonumber (lua_State *L) {$/
+luaB_tostring	src/lbaselib.c	/^static int luaB_tostring (lua_State *L) {$/
+luaB_type	src/lbaselib.c	/^static int luaB_type (lua_State *L) {$/
+luaB_xpcall	src/lbaselib.c	/^static int luaB_xpcall (lua_State *L) {$/
+luaB_yield	src/lcorolib.c	/^static int luaB_yield (lua_State *L) {$/
+luaC_barrier	src/lgc.h	/^#define luaC_barrier(L,p,v) { if (valiswhite(v) &&/
+luaC_barrier_	src/lgc.c	/^void luaC_barrier_ (lua_State *L, GCObject *o, GCO/
+luaC_barrierback	src/lgc.h	/^#define luaC_barrierback(L,p,v) { if (valiswhite(v/
+luaC_barrierback_	src/lgc.c	/^void luaC_barrierback_ (lua_State *L, GCObject *o)/
+luaC_barrierproto	src/lgc.h	/^#define luaC_barrierproto(L,p,c) \\$/
+luaC_barrierproto_	src/lgc.c	/^LUAI_FUNC void luaC_barrierproto_ (lua_State *L, P/
+luaC_changemode	src/lgc.c	/^void luaC_changemode (lua_State *L, int mode) {$/
+luaC_checkGC	src/lgc.h	/^#define luaC_checkGC(L)		luaC_condGC(L, luaC_step(/
+luaC_checkfinalizer	src/lgc.c	/^void luaC_checkfinalizer (lua_State *L, GCObject */
+luaC_checkupvalcolor	src/lgc.c	/^void luaC_checkupvalcolor (global_State *g, UpVal /
+luaC_condGC	src/lgc.h	/^#define luaC_condGC(L,c) \\$/
+luaC_forcestep	src/lgc.c	/^void luaC_forcestep (lua_State *L) {$/
+luaC_freeallobjects	src/lgc.c	/^void luaC_freeallobjects (lua_State *L) {$/
+luaC_fullgc	src/lgc.c	/^void luaC_fullgc (lua_State *L, int isemergency) {/
+luaC_newobj	src/lgc.c	/^GCObject *luaC_newobj (lua_State *L, int tt, size_/
+luaC_objbarrier	src/lgc.h	/^#define luaC_objbarrier(L,p,o)  \\$/
+luaC_objbarrierback	src/lgc.h	/^#define luaC_objbarrierback(L,p,o)  \\$/
+luaC_runtilstate	src/lgc.c	/^void luaC_runtilstate (lua_State *L, int statesmas/
+luaC_step	src/lgc.c	/^void luaC_step (lua_State *L) {$/
+luaC_white	src/lgc.h	/^#define luaC_white(g)	cast(lu_byte, (g)->currentwh/
+luaD_call	src/ldo.c	/^void luaD_call (lua_State *L, StkId func, int nRes/
+luaD_checkstack	src/ldo.h	/^#define luaD_checkstack(L,n)	if (L->stack_last - L/
+luaD_growstack	src/ldo.c	/^void luaD_growstack (lua_State *L, int n) {$/
+luaD_hook	src/ldo.c	/^void luaD_hook (lua_State *L, int event, int line)/
+luaD_pcall	src/ldo.c	/^int luaD_pcall (lua_State *L, Pfunc func, void *u,/
+luaD_poscall	src/ldo.c	/^int luaD_poscall (lua_State *L, StkId firstResult)/
+luaD_precall	src/ldo.c	/^int luaD_precall (lua_State *L, StkId func, int nr/
+luaD_protectedparser	src/ldo.c	/^int luaD_protectedparser (lua_State *L, ZIO *z, co/
+luaD_rawrunprotected	src/ldo.c	/^int luaD_rawrunprotected (lua_State *L, Pfunc f, v/
+luaD_reallocstack	src/ldo.c	/^void luaD_reallocstack (lua_State *L, int newsize)/
+luaD_shrinkstack	src/ldo.c	/^void luaD_shrinkstack (lua_State *L) {$/
+luaD_throw	src/ldo.c	/^l_noret luaD_throw (lua_State *L, int errcode) {$/
+luaE_extendCI	src/lstate.c	/^CallInfo *luaE_extendCI (lua_State *L) {$/
+luaE_freeCI	src/lstate.c	/^void luaE_freeCI (lua_State *L) {$/
+luaE_freethread	src/lstate.c	/^void luaE_freethread (lua_State *L, lua_State *L1)/
+luaE_setdebt	src/lstate.c	/^void luaE_setdebt (global_State *g, l_mem debt) {$/
+luaF_close	src/lfunc.c	/^void luaF_close (lua_State *L, StkId level) {$/
+luaF_findupval	src/lfunc.c	/^UpVal *luaF_findupval (lua_State *L, StkId level) /
+luaF_freeproto	src/lfunc.c	/^void luaF_freeproto (lua_State *L, Proto *f) {$/
+luaF_freeupval	src/lfunc.c	/^void luaF_freeupval (lua_State *L, UpVal *uv) {$/
+luaF_getlocalname	src/lfunc.c	/^const char *luaF_getlocalname (const Proto *f, int/
+luaF_newCclosure	src/lfunc.c	/^Closure *luaF_newCclosure (lua_State *L, int n) {$/
+luaF_newLclosure	src/lfunc.c	/^Closure *luaF_newLclosure (lua_State *L, int n) {$/
+luaF_newproto	src/lfunc.c	/^Proto *luaF_newproto (lua_State *L) {$/
+luaF_newupval	src/lfunc.c	/^UpVal *luaF_newupval (lua_State *L) {$/
+luaG_aritherror	src/ldebug.c	/^l_noret luaG_aritherror (lua_State *L, const TValu/
+luaG_concaterror	src/ldebug.c	/^l_noret luaG_concaterror (lua_State *L, StkId p1, /
+luaG_errormsg	src/ldebug.c	/^l_noret luaG_errormsg (lua_State *L) {$/
+luaG_ordererror	src/ldebug.c	/^l_noret luaG_ordererror (lua_State *L, const TValu/
+luaG_runerror	src/ldebug.c	/^l_noret luaG_runerror (lua_State *L, const char *f/
+luaG_typeerror	src/ldebug.c	/^l_noret luaG_typeerror (lua_State *L, const TValue/
+luaH_free	src/ltable.c	/^void luaH_free (lua_State *L, Table *t) {$/
+luaH_get	src/ltable.c	/^const TValue *luaH_get (Table *t, const TValue *ke/
+luaH_getint	src/ltable.c	/^const TValue *luaH_getint (Table *t, int key) {$/
+luaH_getn	src/ltable.c	/^int luaH_getn (Table *t) {$/
+luaH_getstr	src/ltable.c	/^const TValue *luaH_getstr (Table *t, TString *key)/
+luaH_isdummy	src/ltable.c	/^int luaH_isdummy (Node *n) { return isdummy(n); }$/
+luaH_mainposition	src/ltable.c	/^Node *luaH_mainposition (const Table *t, const TVa/
+luaH_new	src/ltable.c	/^Table *luaH_new (lua_State *L) {$/
+luaH_newkey	src/ltable.c	/^TValue *luaH_newkey (lua_State *L, Table *t, const/
+luaH_next	src/ltable.c	/^int luaH_next (lua_State *L, Table *t, StkId key) /
+luaH_resize	src/ltable.c	/^void luaH_resize (lua_State *L, Table *t, int nasi/
+luaH_resizearray	src/ltable.c	/^void luaH_resizearray (lua_State *L, Table *t, int/
+luaH_set	src/ltable.c	/^TValue *luaH_set (lua_State *L, Table *t, const TV/
+luaH_setint	src/ltable.c	/^void luaH_setint (lua_State *L, Table *t, int key,/
+luaK_checkstack	src/lcode.c	/^void luaK_checkstack (FuncState *fs, int n) {$/
+luaK_code	src/lcode.c	/^static int luaK_code (FuncState *fs, Instruction i/
+luaK_codeABC	src/lcode.c	/^int luaK_codeABC (FuncState *fs, OpCode o, int a, /
+luaK_codeABx	src/lcode.c	/^int luaK_codeABx (FuncState *fs, OpCode o, int a, /
+luaK_codeAsBx	src/lcode.h	/^#define luaK_codeAsBx(fs,o,A,sBx)	luaK_codeABx(fs,/
+luaK_codek	src/lcode.c	/^int luaK_codek (FuncState *fs, int reg, int k) {$/
+luaK_concat	src/lcode.c	/^void luaK_concat (FuncState *fs, int *l1, int l2) /
+luaK_dischargevars	src/lcode.c	/^void luaK_dischargevars (FuncState *fs, expdesc *e/
+luaK_exp2RK	src/lcode.c	/^int luaK_exp2RK (FuncState *fs, expdesc *e) {$/
+luaK_exp2anyreg	src/lcode.c	/^int luaK_exp2anyreg (FuncState *fs, expdesc *e) {$/
+luaK_exp2anyregup	src/lcode.c	/^void luaK_exp2anyregup (FuncState *fs, expdesc *e)/
+luaK_exp2nextreg	src/lcode.c	/^void luaK_exp2nextreg (FuncState *fs, expdesc *e) /
+luaK_exp2val	src/lcode.c	/^void luaK_exp2val (FuncState *fs, expdesc *e) {$/
+luaK_fixline	src/lcode.c	/^void luaK_fixline (FuncState *fs, int line) {$/
+luaK_getlabel	src/lcode.c	/^int luaK_getlabel (FuncState *fs) {$/
+luaK_goiffalse	src/lcode.c	/^void luaK_goiffalse (FuncState *fs, expdesc *e) {$/
+luaK_goiftrue	src/lcode.c	/^void luaK_goiftrue (FuncState *fs, expdesc *e) {$/
+luaK_indexed	src/lcode.c	/^void luaK_indexed (FuncState *fs, expdesc *t, expd/
+luaK_infix	src/lcode.c	/^void luaK_infix (FuncState *fs, BinOpr op, expdesc/
+luaK_jump	src/lcode.c	/^int luaK_jump (FuncState *fs) {$/
+luaK_jumpto	src/lcode.h	/^#define luaK_jumpto(fs,t)	luaK_patchlist(fs, luaK_/
+luaK_nil	src/lcode.c	/^void luaK_nil (FuncState *fs, int from, int n) {$/
+luaK_numberK	src/lcode.c	/^int luaK_numberK (FuncState *fs, lua_Number r) {$/
+luaK_patchclose	src/lcode.c	/^LUAI_FUNC void luaK_patchclose (FuncState *fs, int/
+luaK_patchlist	src/lcode.c	/^void luaK_patchlist (FuncState *fs, int list, int /
+luaK_patchtohere	src/lcode.c	/^void luaK_patchtohere (FuncState *fs, int list) {$/
+luaK_posfix	src/lcode.c	/^void luaK_posfix (FuncState *fs, BinOpr op,$/
+luaK_prefix	src/lcode.c	/^void luaK_prefix (FuncState *fs, UnOpr op, expdesc/
+luaK_reserveregs	src/lcode.c	/^void luaK_reserveregs (FuncState *fs, int n) {$/
+luaK_ret	src/lcode.c	/^void luaK_ret (FuncState *fs, int first, int nret)/
+luaK_self	src/lcode.c	/^void luaK_self (FuncState *fs, expdesc *e, expdesc/
+luaK_setlist	src/lcode.c	/^void luaK_setlist (FuncState *fs, int base, int ne/
+luaK_setmultret	src/lcode.h	/^#define luaK_setmultret(fs,e)	luaK_setreturns(fs, /
+luaK_setoneret	src/lcode.c	/^void luaK_setoneret (FuncState *fs, expdesc *e) {$/
+luaK_setreturns	src/lcode.c	/^void luaK_setreturns (FuncState *fs, expdesc *e, i/
+luaK_storevar	src/lcode.c	/^void luaK_storevar (FuncState *fs, expdesc *var, e/
+luaK_stringK	src/lcode.c	/^int luaK_stringK (FuncState *fs, TString *s) {$/
+luaL_Buffer	src/lauxlib.h	/^} luaL_Buffer;$/
+luaL_Reg	src/lauxlib.h	/^} luaL_Reg;$/
+luaL_Stream	src/lauxlib.h	/^} luaL_Stream;$/
+luaL_addchar	src/lauxlib.h	/^#define luaL_addchar(B,c) \\$/
+luaL_addlstring	src/lauxlib.c	/^LUALIB_API void luaL_addlstring (luaL_Buffer *B, c/
+luaL_addsize	src/lauxlib.h	/^#define luaL_addsize(B,s)	((B)->n += (s))$/
+luaL_addstring	src/lauxlib.c	/^LUALIB_API void luaL_addstring (luaL_Buffer *B, co/
+luaL_addvalue	src/lauxlib.c	/^LUALIB_API void luaL_addvalue (luaL_Buffer *B) {$/
+luaL_argcheck	src/lauxlib.h	/^#define luaL_argcheck(L, cond,numarg,extramsg)	\\$/
+luaL_argerror	src/lauxlib.c	/^LUALIB_API int luaL_argerror (lua_State *L, int na/
+luaL_buffinit	src/lauxlib.c	/^LUALIB_API void luaL_buffinit (lua_State *L, luaL_/
+luaL_buffinitsize	src/lauxlib.c	/^LUALIB_API char *luaL_buffinitsize (lua_State *L, /
+luaL_callmeta	src/lauxlib.c	/^LUALIB_API int luaL_callmeta (lua_State *L, int ob/
+luaL_checkany	src/lauxlib.c	/^LUALIB_API void luaL_checkany (lua_State *L, int n/
+luaL_checkint	src/lauxlib.h	/^#define luaL_checkint(L,n)	((int)luaL_checkinteger/
+luaL_checkinteger	src/lauxlib.c	/^LUALIB_API lua_Integer luaL_checkinteger (lua_Stat/
+luaL_checklong	src/lauxlib.h	/^#define luaL_checklong(L,n)	((long)luaL_checkinteg/
+luaL_checklstring	src/lauxlib.c	/^LUALIB_API const char *luaL_checklstring (lua_Stat/
+luaL_checknumber	src/lauxlib.c	/^LUALIB_API lua_Number luaL_checknumber (lua_State /
+luaL_checkoption	src/lauxlib.c	/^LUALIB_API int luaL_checkoption (lua_State *L, int/
+luaL_checkstack	src/lauxlib.c	/^LUALIB_API void luaL_checkstack (lua_State *L, int/
+luaL_checkstring	src/lauxlib.h	/^#define luaL_checkstring(L,n)	(luaL_checklstring(L/
+luaL_checktype	src/lauxlib.c	/^LUALIB_API void luaL_checktype (lua_State *L, int /
+luaL_checkudata	src/lauxlib.c	/^LUALIB_API void *luaL_checkudata (lua_State *L, in/
+luaL_checkunsigned	src/lauxlib.c	/^LUALIB_API lua_Unsigned luaL_checkunsigned (lua_St/
+luaL_checkversion	src/lauxlib.h	/^#define luaL_checkversion(L)	luaL_checkversion_(L,/
+luaL_checkversion_	src/lauxlib.c	/^LUALIB_API void luaL_checkversion_ (lua_State *L, /
+luaL_dofile	src/lauxlib.h	/^#define luaL_dofile(L, fn) \\$/
+luaL_dostring	src/lauxlib.h	/^#define luaL_dostring(L, s) \\$/
+luaL_error	src/lauxlib.c	/^LUALIB_API int luaL_error (lua_State *L, const cha/
+luaL_execresult	src/lauxlib.c	/^LUALIB_API int luaL_execresult (lua_State *L, int /
+luaL_fileresult	src/lauxlib.c	/^LUALIB_API int luaL_fileresult (lua_State *L, int /
+luaL_findtable	src/lauxlib.c	/^static const char *luaL_findtable (lua_State *L, i/
+luaL_getmetafield	src/lauxlib.c	/^LUALIB_API int luaL_getmetafield (lua_State *L, in/
+luaL_getmetatable	src/lauxlib.h	/^#define luaL_getmetatable(L,n)	(lua_getfield(L, LU/
+luaL_getsubtable	src/lauxlib.c	/^LUALIB_API int luaL_getsubtable (lua_State *L, int/
+luaL_gsub	src/lauxlib.c	/^LUALIB_API const char *luaL_gsub (lua_State *L, co/
+luaL_len	src/lauxlib.c	/^LUALIB_API int luaL_len (lua_State *L, int idx) {$/
+luaL_loadbuffer	src/lauxlib.h	/^#define luaL_loadbuffer(L,s,sz,n)	luaL_loadbufferx/
+luaL_loadbufferx	src/lauxlib.c	/^LUALIB_API int luaL_loadbufferx (lua_State *L, con/
+luaL_loadfile	src/lauxlib.h	/^#define luaL_loadfile(L,f)	luaL_loadfilex(L,f,NULL/
+luaL_loadfilex	src/lauxlib.c	/^LUALIB_API int luaL_loadfilex (lua_State *L, const/
+luaL_loadstring	src/lauxlib.c	/^LUALIB_API int luaL_loadstring (lua_State *L, cons/
+luaL_newlib	src/lauxlib.h	/^#define luaL_newlib(L,l)	(luaL_newlibtable(L,l), l/
+luaL_newlibtable	src/lauxlib.h	/^#define luaL_newlibtable(L,l)	\\$/
+luaL_newmetatable	src/lauxlib.c	/^LUALIB_API int luaL_newmetatable (lua_State *L, co/
+luaL_newstate	src/lauxlib.c	/^LUALIB_API lua_State *luaL_newstate (void) {$/
+luaL_openlib	src/lauxlib.c	/^LUALIB_API void luaL_openlib (lua_State *L, const /
+luaL_openlibs	src/linit.c	/^LUALIB_API void luaL_openlibs (lua_State *L) {$/
+luaL_opt	src/lauxlib.h	/^#define luaL_opt(L,f,n,d)	(lua_isnoneornil(L,(n)) /
+luaL_optint	src/lauxlib.h	/^#define luaL_optint(L,n,d)	((int)luaL_optinteger(L/
+luaL_optinteger	src/lauxlib.c	/^LUALIB_API lua_Integer luaL_optinteger (lua_State /
+luaL_optlong	src/lauxlib.h	/^#define luaL_optlong(L,n,d)	((long)luaL_optinteger/
+luaL_optlstring	src/lauxlib.c	/^LUALIB_API const char *luaL_optlstring (lua_State /
+luaL_optnumber	src/lauxlib.c	/^LUALIB_API lua_Number luaL_optnumber (lua_State *L/
+luaL_optstring	src/lauxlib.h	/^#define luaL_optstring(L,n,d)	(luaL_optlstring(L, /
+luaL_optunsigned	src/lauxlib.c	/^LUALIB_API lua_Unsigned luaL_optunsigned (lua_Stat/
+luaL_prepbuffer	src/lauxlib.h	/^#define luaL_prepbuffer(B)	luaL_prepbuffsize(B, LU/
+luaL_prepbuffsize	src/lauxlib.c	/^LUALIB_API char *luaL_prepbuffsize (luaL_Buffer *B/
+luaL_pushmodule	src/lauxlib.c	/^LUALIB_API void luaL_pushmodule (lua_State *L, con/
+luaL_pushresult	src/lauxlib.c	/^LUALIB_API void luaL_pushresult (luaL_Buffer *B) {/
+luaL_pushresultsize	src/lauxlib.c	/^LUALIB_API void luaL_pushresultsize (luaL_Buffer */
+luaL_ref	src/lauxlib.c	/^LUALIB_API int luaL_ref (lua_State *L, int t) {$/
+luaL_register	src/lauxlib.h	/^#define luaL_register(L,n,l)	(luaL_openlib(L,(n),(/
+luaL_requiref	src/lauxlib.c	/^LUALIB_API void luaL_requiref (lua_State *L, const/
+luaL_setfuncs	src/lauxlib.c	/^LUALIB_API void luaL_setfuncs (lua_State *L, const/
+luaL_setmetatable	src/lauxlib.c	/^LUALIB_API void luaL_setmetatable (lua_State *L, c/
+luaL_testudata	src/lauxlib.c	/^LUALIB_API void *luaL_testudata (lua_State *L, int/
+luaL_tolstring	src/lauxlib.c	/^LUALIB_API const char *luaL_tolstring (lua_State */
+luaL_traceback	src/lauxlib.c	/^LUALIB_API void luaL_traceback (lua_State *L, lua_/
+luaL_typename	src/lauxlib.h	/^#define luaL_typename(L,i)	lua_typename(L, lua_typ/
+luaL_unref	src/lauxlib.c	/^LUALIB_API void luaL_unref (lua_State *L, int t, i/
+luaL_where	src/lauxlib.c	/^LUALIB_API void luaL_where (lua_State *L, int leve/
+luaM_free	src/lmem.h	/^#define luaM_free(L, b)		luaM_realloc_(L, (b), siz/
+luaM_freearray	src/lmem.h	/^#define luaM_freearray(L, b, n)   luaM_reallocv(L,/
+luaM_freemem	src/lmem.h	/^#define luaM_freemem(L, b, s)	luaM_realloc_(L, (b)/
+luaM_growaux_	src/lmem.c	/^void *luaM_growaux_ (lua_State *L, void *block, in/
+luaM_growvector	src/lmem.h	/^#define luaM_growvector(L,v,nelems,size,t,limit,e)/
+luaM_malloc	src/lmem.h	/^#define luaM_malloc(L,s)	luaM_realloc_(L, NULL, 0,/
+luaM_new	src/lmem.h	/^#define luaM_new(L,t)		cast(t *, luaM_malloc(L, si/
+luaM_newobject	src/lmem.h	/^#define luaM_newobject(L,tag,s)	luaM_realloc_(L, N/
+luaM_newvector	src/lmem.h	/^#define luaM_newvector(L,n,t) \\$/
+luaM_realloc_	src/lmem.c	/^void *luaM_realloc_ (lua_State *L, void *block, si/
+luaM_reallocv	src/lmem.h	/^#define luaM_reallocv(L,b,on,n,e) \\$/
+luaM_reallocvector	src/lmem.h	/^#define luaM_reallocvector(L, v,oldn,n,t) \\$/
+luaM_toobig	src/lmem.c	/^l_noret luaM_toobig (lua_State *L) {$/
+luaO_arith	src/lobject.c	/^lua_Number luaO_arith (int op, lua_Number v1, lua_/
+luaO_ceillog2	src/lobject.c	/^int luaO_ceillog2 (unsigned int x) {$/
+luaO_chunkid	src/lobject.c	/^void luaO_chunkid (char *out, const char *source, /
+luaO_fb2int	src/lobject.c	/^int luaO_fb2int (int x) {$/
+luaO_hexavalue	src/lobject.c	/^int luaO_hexavalue (int c) {$/
+luaO_int2fb	src/lobject.c	/^int luaO_int2fb (unsigned int x) {$/
+luaO_pushfstring	src/lobject.c	/^const char *luaO_pushfstring (lua_State *L, const /
+luaO_pushvfstring	src/lobject.c	/^const char *luaO_pushvfstring (lua_State *L, const/
+luaO_str2d	src/lobject.c	/^int luaO_str2d (const char *s, size_t len, lua_Num/
+luaS_eqlngstr	src/lstring.c	/^int luaS_eqlngstr (TString *a, TString *b) {$/
+luaS_eqstr	src/lstring.c	/^int luaS_eqstr (TString *a, TString *b) {$/
+luaS_fix	src/lstring.h	/^#define luaS_fix(s)	l_setbit((s)->tsv.marked, FIXE/
+luaS_hash	src/lstring.c	/^unsigned int luaS_hash (const char *str, size_t l,/
+luaS_new	src/lstring.c	/^TString *luaS_new (lua_State *L, const char *str) /
+luaS_newliteral	src/lstring.h	/^#define luaS_newliteral(L, s)	(luaS_newlstr(L, "" /
+luaS_newlstr	src/lstring.c	/^TString *luaS_newlstr (lua_State *L, const char *s/
+luaS_newudata	src/lstring.c	/^Udata *luaS_newudata (lua_State *L, size_t s, Tabl/
+luaS_resize	src/lstring.c	/^void luaS_resize (lua_State *L, int newsize) {$/
+luaT_gettm	src/ltm.c	/^const TValue *luaT_gettm (Table *events, TMS event/
+luaT_gettmbyobj	src/ltm.c	/^const TValue *luaT_gettmbyobj (lua_State *L, const/
+luaT_init	src/ltm.c	/^void luaT_init (lua_State *L) {$/
+luaU_dump	src/ldump.c	/^int luaU_dump (lua_State* L, const Proto* f, lua_W/
+luaU_header	src/lundump.c	/^void luaU_header (lu_byte* h)$/
+luaU_undump	src/lundump.c	/^Closure* luaU_undump (lua_State* L, ZIO* Z, Mbuffe/
+luaV_arith	src/lvm.c	/^void luaV_arith (lua_State *L, StkId ra, const TVa/
+luaV_concat	src/lvm.c	/^void luaV_concat (lua_State *L, int total) {$/
+luaV_equalobj_	src/lvm.c	/^int luaV_equalobj_ (lua_State *L, const TValue *t1/
+luaV_execute	src/lvm.c	/^void luaV_execute (lua_State *L) {$/
+luaV_finishOp	src/lvm.c	/^void luaV_finishOp (lua_State *L) {$/
+luaV_gettable	src/lvm.c	/^void luaV_gettable (lua_State *L, const TValue *t,/
+luaV_lessequal	src/lvm.c	/^int luaV_lessequal (lua_State *L, const TValue *l,/
+luaV_lessthan	src/lvm.c	/^int luaV_lessthan (lua_State *L, const TValue *l, /
+luaV_objlen	src/lvm.c	/^void luaV_objlen (lua_State *L, StkId ra, const TV/
+luaV_rawequalobj	src/lvm.h	/^#define luaV_rawequalobj(o1,o2)		equalobj(NULL,o1,/
+luaV_settable	src/lvm.c	/^void luaV_settable (lua_State *L, const TValue *t,/
+luaV_tonumber	src/lvm.c	/^const TValue *luaV_tonumber (const TValue *obj, TV/
+luaV_tostring	src/lvm.c	/^int luaV_tostring (lua_State *L, StkId obj) {$/
+luaX_init	src/llex.c	/^void luaX_init (lua_State *L) {$/
+luaX_lookahead	src/llex.c	/^int luaX_lookahead (LexState *ls) {$/
+luaX_newstring	src/llex.c	/^TString *luaX_newstring (LexState *ls, const char /
+luaX_next	src/llex.c	/^void luaX_next (LexState *ls) {$/
+luaX_setinput	src/llex.c	/^void luaX_setinput (lua_State *L, LexState *ls, ZI/
+luaX_syntaxerror	src/llex.c	/^l_noret luaX_syntaxerror (LexState *ls, const char/
+luaX_token2str	src/llex.c	/^const char *luaX_token2str (LexState *ls, int toke/
+luaY_parser	src/lparser.c	/^Closure *luaY_parser (lua_State *L, ZIO *z, Mbuffe/
+luaZ_buffer	src/lzio.h	/^#define luaZ_buffer(buff)	((buff)->buffer)$/
+luaZ_bufflen	src/lzio.h	/^#define luaZ_bufflen(buff)	((buff)->n)$/
+luaZ_fill	src/lzio.c	/^int luaZ_fill (ZIO *z) {$/
+luaZ_freebuffer	src/lzio.h	/^#define luaZ_freebuffer(L, buff)	luaZ_resizebuffer/
+luaZ_init	src/lzio.c	/^void luaZ_init (lua_State *L, ZIO *z, lua_Reader r/
+luaZ_initbuffer	src/lzio.h	/^#define luaZ_initbuffer(L, buff) ((buff)->buffer =/
+luaZ_openspace	src/lzio.c	/^char *luaZ_openspace (lua_State *L, Mbuffer *buff,/
+luaZ_read	src/lzio.c	/^size_t luaZ_read (ZIO *z, void *b, size_t n) {$/
+luaZ_resetbuffer	src/lzio.h	/^#define luaZ_resetbuffer(buff) ((buff)->n = 0)$/
+luaZ_resizebuffer	src/lzio.h	/^#define luaZ_resizebuffer(L, buff, size) \\$/
+luaZ_sizebuffer	src/lzio.h	/^#define luaZ_sizebuffer(buff)	((buff)->buffsize)$/
+lua_Debug	src/lua.h	/^typedef struct lua_Debug lua_Debug;  \/* activatio/
+lua_Integer	src/lua.h	/^typedef LUA_INTEGER lua_Integer;$/
+lua_Number	src/lua.h	/^typedef LUA_NUMBER lua_Number;$/
+lua_State	src/lstate.h	/^struct lua_State {$/
+lua_TValue	src/lobject.h	/^struct lua_TValue {$/
+lua_Unsigned	src/lua.h	/^typedef LUA_UNSIGNED lua_Unsigned;$/
+lua_absindex	src/lapi.c	/^LUA_API int lua_absindex (lua_State *L, int idx) {/
+lua_arith	src/lapi.c	/^LUA_API void lua_arith (lua_State *L, int op) {$/
+lua_assert	src/llimits.h	/^#define lua_assert(c)		((void)0)$/
+lua_atpanic	src/lapi.c	/^LUA_API lua_CFunction lua_atpanic (lua_State *L, l/
+lua_call	src/lua.h	/^#define lua_call(L,n,r)		lua_callk(L, (n), (r), 0,/
+lua_callk	src/lapi.c	/^LUA_API void lua_callk (lua_State *L, int nargs, i/
+lua_checkmode	src/liolib.c	/^#define lua_checkmode(mode) \\$/
+lua_checkstack	src/lapi.c	/^LUA_API int lua_checkstack (lua_State *L, int size/
+lua_close	src/lstate.c	/^LUA_API void lua_close (lua_State *L) {$/
+lua_compare	src/lapi.c	/^LUA_API int lua_compare (lua_State *L, int index1,/
+lua_concat	src/lapi.c	/^LUA_API void lua_concat (lua_State *L, int n) {$/
+lua_copy	src/lapi.c	/^LUA_API void lua_copy (lua_State *L, int fromidx, /
+lua_cpcall	src/luaconf.h	/^#define lua_cpcall(L,f,u)  \\$/
+lua_createtable	src/lapi.c	/^LUA_API void lua_createtable (lua_State *L, int na/
+lua_dump	src/lapi.c	/^LUA_API int lua_dump (lua_State *L, lua_Writer wri/
+lua_equal	src/luaconf.h	/^#define lua_equal(L,idx1,idx2)		lua_compare(L,(idx/
+lua_error	src/lapi.c	/^LUA_API int lua_error (lua_State *L) {$/
+lua_freeline	src/lua.c	/^#define lua_freeline(L,b)	((void)L, free(b))$/
+lua_gc	src/lapi.c	/^LUA_API int lua_gc (lua_State *L, int what, int da/
+lua_getallocf	src/lapi.c	/^LUA_API lua_Alloc lua_getallocf (lua_State *L, voi/
+lua_getctx	src/lapi.c	/^LUA_API int lua_getctx (lua_State *L, int *ctx) {$/
+lua_getfield	src/lapi.c	/^LUA_API void lua_getfield (lua_State *L, int idx, /
+lua_getglobal	src/lapi.c	/^LUA_API void lua_getglobal (lua_State *L, const ch/
+lua_gethook	src/ldebug.c	/^LUA_API lua_Hook lua_gethook (lua_State *L) {$/
+lua_gethookcount	src/ldebug.c	/^LUA_API int lua_gethookcount (lua_State *L) {$/
+lua_gethookmask	src/ldebug.c	/^LUA_API int lua_gethookmask (lua_State *L) {$/
+lua_getinfo	src/ldebug.c	/^LUA_API int lua_getinfo (lua_State *L, const char /
+lua_getlocal	src/ldebug.c	/^LUA_API const char *lua_getlocal (lua_State *L, co/
+lua_getmetatable	src/lapi.c	/^LUA_API int lua_getmetatable (lua_State *L, int ob/
+lua_getstack	src/ldebug.c	/^LUA_API int lua_getstack (lua_State *L, int level,/
+lua_gettable	src/lapi.c	/^LUA_API void lua_gettable (lua_State *L, int idx) /
+lua_gettop	src/lapi.c	/^LUA_API int lua_gettop (lua_State *L) {$/
+lua_getupvalue	src/lapi.c	/^LUA_API const char *lua_getupvalue (lua_State *L, /
+lua_getuservalue	src/lapi.c	/^LUA_API void lua_getuservalue (lua_State *L, int i/
+lua_insert	src/lapi.c	/^LUA_API void lua_insert (lua_State *L, int idx) {$/
+lua_isboolean	src/lua.h	/^#define lua_isboolean(L,n)	(lua_type(L, (n)) == LU/
+lua_iscfunction	src/lapi.c	/^LUA_API int lua_iscfunction (lua_State *L, int idx/
+lua_isfunction	src/lua.h	/^#define lua_isfunction(L,n)	(lua_type(L, (n)) == L/
+lua_islightuserdata	src/lua.h	/^#define lua_islightuserdata(L,n)	(lua_type(L, (n))/
+lua_isnil	src/lua.h	/^#define lua_isnil(L,n)		(lua_type(L, (n)) == LUA_T/
+lua_isnone	src/lua.h	/^#define lua_isnone(L,n)		(lua_type(L, (n)) == LUA_/
+lua_isnoneornil	src/lua.h	/^#define lua_isnoneornil(L, n)	(lua_type(L, (n)) <=/
+lua_isnumber	src/lapi.c	/^LUA_API int lua_isnumber (lua_State *L, int idx) {/
+lua_isstring	src/lapi.c	/^LUA_API int lua_isstring (lua_State *L, int idx) {/
+lua_istable	src/lua.h	/^#define lua_istable(L,n)	(lua_type(L, (n)) == LUA_/
+lua_isthread	src/lua.h	/^#define lua_isthread(L,n)	(lua_type(L, (n)) == LUA/
+lua_isuserdata	src/lapi.c	/^LUA_API int lua_isuserdata (lua_State *L, int idx)/
+lua_len	src/lapi.c	/^LUA_API void lua_len (lua_State *L, int idx) {$/
+lua_lessthan	src/luaconf.h	/^#define lua_lessthan(L,idx1,idx2)	lua_compare(L,(i/
+lua_load	src/lapi.c	/^LUA_API int lua_load (lua_State *L, lua_Reader rea/
+lua_lock	src/llimits.h	/^#define lua_lock(L)     ((void) 0)$/
+lua_longassert	src/llimits.h	/^#define lua_longassert(c)	{ if (!(c)) lua_assert(0/
+lua_longjmp	src/ldo.c	/^struct lua_longjmp {$/
+lua_newstate	src/lstate.c	/^LUA_API lua_State *lua_newstate (lua_Alloc f, void/
+lua_newtable	src/lua.h	/^#define lua_newtable(L)		lua_createtable(L, 0, 0)$/
+lua_newthread	src/lstate.c	/^LUA_API lua_State *lua_newthread (lua_State *L) {$/
+lua_newuserdata	src/lapi.c	/^LUA_API void *lua_newuserdata (lua_State *L, size_/
+lua_next	src/lapi.c	/^LUA_API int lua_next (lua_State *L, int idx) {$/
+lua_number2int	src/llimits.h	/^#define lua_number2int(i,n)  __asm {__asm fld n   /
+lua_number2int32	src/llimits.h	/^#define lua_number2int32(i,n,t) \\$/
+lua_number2integer	src/llimits.h	/^#define lua_number2integer(i,n)		lua_number2int(i,/
+lua_number2str	src/luaconf.h	/^#define lua_number2str(s,n)	sprintf((s), LUA_NUMBE/
+lua_number2unsigned	src/llimits.h	/^#define lua_number2unsigned(i,n)  \\$/
+lua_objlen	src/luaconf.h	/^#define lua_objlen(L,i)		lua_rawlen(L, (i))$/
+lua_pcall	src/lua.h	/^#define lua_pcall(L,n,r,f)	lua_pcallk(L, (n), (r),/
+lua_pcallk	src/lapi.c	/^LUA_API int lua_pcallk (lua_State *L, int nargs, i/
+lua_pclose	src/liolib.c	/^#define lua_pclose(L,file)	((void)L, pclose(file))/
+lua_pop	src/lua.h	/^#define lua_pop(L,n)		lua_settop(L, -(n)-1)$/
+lua_popen	src/liolib.c	/^#define lua_popen(L,c,m)	((void)L, fflush(NULL), p/
+lua_pushboolean	src/lapi.c	/^LUA_API void lua_pushboolean (lua_State *L, int b)/
+lua_pushcclosure	src/lapi.c	/^LUA_API void lua_pushcclosure (lua_State *L, lua_C/
+lua_pushcfunction	src/lua.h	/^#define lua_pushcfunction(L,f)	lua_pushcclosure(L,/
+lua_pushfstring	src/lapi.c	/^LUA_API const char *lua_pushfstring (lua_State *L,/
+lua_pushglobaltable	src/lua.h	/^#define lua_pushglobaltable(L)  \\$/
+lua_pushinteger	src/lapi.c	/^LUA_API void lua_pushinteger (lua_State *L, lua_In/
+lua_pushlightuserdata	src/lapi.c	/^LUA_API void lua_pushlightuserdata (lua_State *L, /
+lua_pushliteral	src/lua.h	/^#define lua_pushliteral(L, s)	\\$/
+lua_pushlstring	src/lapi.c	/^LUA_API const char *lua_pushlstring (lua_State *L,/
+lua_pushnil	src/lapi.c	/^LUA_API void lua_pushnil (lua_State *L) {$/
+lua_pushnumber	src/lapi.c	/^LUA_API void lua_pushnumber (lua_State *L, lua_Num/
+lua_pushstring	src/lapi.c	/^LUA_API const char *lua_pushstring (lua_State *L, /
+lua_pushthread	src/lapi.c	/^LUA_API int lua_pushthread (lua_State *L) {$/
+lua_pushunsigned	src/lapi.c	/^LUA_API void lua_pushunsigned (lua_State *L, lua_U/
+lua_pushvalue	src/lapi.c	/^LUA_API void lua_pushvalue (lua_State *L, int idx)/
+lua_pushvfstring	src/lapi.c	/^LUA_API const char *lua_pushvfstring (lua_State *L/
+lua_rawequal	src/lapi.c	/^LUA_API int lua_rawequal (lua_State *L, int index1/
+lua_rawget	src/lapi.c	/^LUA_API void lua_rawget (lua_State *L, int idx) {$/
+lua_rawgeti	src/lapi.c	/^LUA_API void lua_rawgeti (lua_State *L, int idx, i/
+lua_rawgetp	src/lapi.c	/^LUA_API void lua_rawgetp (lua_State *L, int idx, c/
+lua_rawlen	src/lapi.c	/^LUA_API size_t lua_rawlen (lua_State *L, int idx) /
+lua_rawset	src/lapi.c	/^LUA_API void lua_rawset (lua_State *L, int idx) {$/
+lua_rawseti	src/lapi.c	/^LUA_API void lua_rawseti (lua_State *L, int idx, i/
+lua_rawsetp	src/lapi.c	/^LUA_API void lua_rawsetp (lua_State *L, int idx, c/
+lua_readline	src/lua.c	/^#define lua_readline(L,b,p)	((void)L, ((b)=readlin/
+lua_register	src/lua.h	/^#define lua_register(L,n,f) (lua_pushcfunction(L, /
+lua_remove	src/lapi.c	/^LUA_API void lua_remove (lua_State *L, int idx) {$/
+lua_replace	src/lapi.c	/^LUA_API void lua_replace (lua_State *L, int idx) {/
+lua_resume	src/ldo.c	/^LUA_API int lua_resume (lua_State *L, lua_State *f/
+lua_saveline	src/lua.c	/^#define lua_saveline(L,idx) \\$/
+lua_setallocf	src/lapi.c	/^LUA_API void lua_setallocf (lua_State *L, lua_Allo/
+lua_setfield	src/lapi.c	/^LUA_API void lua_setfield (lua_State *L, int idx, /
+lua_setglobal	src/lapi.c	/^LUA_API void lua_setglobal (lua_State *L, const ch/
+lua_sethook	src/ldebug.c	/^LUA_API int lua_sethook (lua_State *L, lua_Hook fu/
+lua_setlocal	src/ldebug.c	/^LUA_API const char *lua_setlocal (lua_State *L, co/
+lua_setmetatable	src/lapi.c	/^LUA_API int lua_setmetatable (lua_State *L, int ob/
+lua_settable	src/lapi.c	/^LUA_API void lua_settable (lua_State *L, int idx) /
+lua_settop	src/lapi.c	/^LUA_API void lua_settop (lua_State *L, int idx) {$/
+lua_setupvalue	src/lapi.c	/^LUA_API const char *lua_setupvalue (lua_State *L, /
+lua_setuservalue	src/lapi.c	/^LUA_API void lua_setuservalue (lua_State *L, int i/
+lua_status	src/lapi.c	/^LUA_API int lua_status (lua_State *L) {$/
+lua_stdin_is_tty	src/lua.c	/^#define lua_stdin_is_tty()	isatty(0)$/
+lua_str2number	src/luaconf.h	/^#define lua_str2number(s,p)	strtod((s), (p))$/
+lua_strlen	src/luaconf.h	/^#define lua_strlen(L,i)		lua_rawlen(L, (i))$/
+lua_strx2number	src/lobject.c	/^static lua_Number lua_strx2number (const char *s, /
+lua_tmpnam	src/loslib.c	/^#define lua_tmpnam(b,e) { \\$/
+lua_toboolean	src/lapi.c	/^LUA_API int lua_toboolean (lua_State *L, int idx) /
+lua_tocfunction	src/lapi.c	/^LUA_API lua_CFunction lua_tocfunction (lua_State */
+lua_tointeger	src/lua.h	/^#define lua_tointeger(L,i)	lua_tointegerx(L,i,NULL/
+lua_tointegerx	src/lapi.c	/^LUA_API lua_Integer lua_tointegerx (lua_State *L, /
+lua_tolstring	src/lapi.c	/^LUA_API const char *lua_tolstring (lua_State *L, i/
+lua_tonumber	src/lua.h	/^#define lua_tonumber(L,i)	lua_tonumberx(L,i,NULL)$/
+lua_tonumberx	src/lapi.c	/^LUA_API lua_Number lua_tonumberx (lua_State *L, in/
+lua_topointer	src/lapi.c	/^LUA_API const void *lua_topointer (lua_State *L, i/
+lua_tostring	src/lua.h	/^#define lua_tostring(L,i)	lua_tolstring(L, (i), NU/
+lua_tothread	src/lapi.c	/^LUA_API lua_State *lua_tothread (lua_State *L, int/
+lua_tounsigned	src/lua.h	/^#define lua_tounsigned(L,i)	lua_tounsignedx(L,i,NU/
+lua_tounsignedx	src/lapi.c	/^LUA_API lua_Unsigned lua_tounsignedx (lua_State *L/
+lua_touserdata	src/lapi.c	/^LUA_API void *lua_touserdata (lua_State *L, int id/
+lua_type	src/lapi.c	/^LUA_API int lua_type (lua_State *L, int idx) {$/
+lua_typename	src/lapi.c	/^LUA_API const char *lua_typename (lua_State *L, in/
+lua_unlock	src/llimits.h	/^#define lua_unlock(L)   ((void) 0)$/
+lua_unsigned2number	src/llimits.h	/^#define lua_unsigned2number(u)  \\$/
+lua_upvalueid	src/lapi.c	/^LUA_API void *lua_upvalueid (lua_State *L, int fid/
+lua_upvalueindex	src/lua.h	/^#define lua_upvalueindex(i)	(LUA_REGISTRYINDEX - (/
+lua_upvaluejoin	src/lapi.c	/^LUA_API void lua_upvaluejoin (lua_State *L, int fi/
+lua_version	src/lapi.c	/^LUA_API const lua_Number *lua_version (lua_State */
+lua_xmove	src/lapi.c	/^LUA_API void lua_xmove (lua_State *from, lua_State/
+lua_yield	src/lua.h	/^#define lua_yield(L,n)		lua_yieldk(L, (n), 0, NULL/
+lua_yieldk	src/ldo.c	/^LUA_API int lua_yieldk (lua_State *L, int nresults/
+luai_Cast	src/llimits.h	/^union luai_Cast { double l_d; LUA_INT32 l_p[2]; };/
+luai_apicheck	src/llimits.h	/^#define luai_apicheck(L,e)	assert(e)$/
+luai_checknum	src/lobject.h	/^#define luai_checknum(L,o,c)	{ \/* empty *\/ }$/
+luai_hashnum	src/llimits.h	/^#define luai_hashnum(i,n)  \\$/
+luai_makeseed	src/lstate.c	/^#define luai_makeseed()		cast(unsigned int, time(N/
+luai_numadd	src/luaconf.h	/^#define luai_numadd(L,a,b)	((a)+(b))$/
+luai_numdiv	src/luaconf.h	/^#define luai_numdiv(L,a,b)	((a)\/(b))$/
+luai_numeq	src/luaconf.h	/^#define luai_numeq(a,b)		((a)==(b))$/
+luai_numisnan	src/luaconf.h	/^#define luai_numisnan(L,a)	(!luai_numeq((a), (a)))/
+luai_numle	src/luaconf.h	/^#define luai_numle(L,a,b)	((a)<=(b))$/
+luai_numlt	src/luaconf.h	/^#define luai_numlt(L,a,b)	((a)<(b))$/
+luai_nummod	src/luaconf.h	/^#define luai_nummod(L,a,b)	((a) - l_mathop(floor)(/
+luai_nummul	src/luaconf.h	/^#define luai_nummul(L,a,b)	((a)*(b))$/
+luai_numpow	src/luaconf.h	/^#define luai_numpow(L,a,b)	(l_mathop(pow)(a,b))$/
+luai_numsub	src/luaconf.h	/^#define luai_numsub(L,a,b)	((a)-(b))$/
+luai_numunm	src/luaconf.h	/^#define luai_numunm(L,a)	(-(a))$/
+luai_runtimecheck	src/lvm.c	/^#define luai_runtimecheck(L, c)		\/* void *\/$/
+luai_threadyield	src/llimits.h	/^#define luai_threadyield(L)     {lua_unlock(L); lu/
+luai_userstateclose	src/llimits.h	/^#define luai_userstateclose(L)		((void)L)$/
+luai_userstatefree	src/llimits.h	/^#define luai_userstatefree(L,L1)	((void)L)$/
+luai_userstateopen	src/llimits.h	/^#define luai_userstateopen(L)		((void)L)$/
+luai_userstateresume	src/llimits.h	/^#define luai_userstateresume(L,n)       ((void)L)$/
+luai_userstatethread	src/llimits.h	/^#define luai_userstatethread(L,L1)	((void)L)$/
+luai_userstateyield	src/llimits.h	/^#define luai_userstateyield(L,n)        ((void)L)$/
+luai_verifycode	src/lundump.c	/^#define luai_verifycode(L,b,f)	\/* empty *\/$/
+luai_writeline	src/luaconf.h	/^#define luai_writeline()	(luai_writestring("\\n", /
+luai_writestring	src/luaconf.h	/^#define luai_writestring(s,l)	fwrite((s), sizeof(c/
+luai_writestringerror	src/luaconf.h	/^#define luai_writestringerror(s,p) \\$/
+luaopen_base	src/lbaselib.c	/^LUAMOD_API int luaopen_base (lua_State *L) {$/
+luaopen_bit32	src/lbitlib.c	/^LUAMOD_API int luaopen_bit32 (lua_State *L) {$/
+luaopen_coroutine	src/lcorolib.c	/^LUAMOD_API int luaopen_coroutine (lua_State *L) {$/
+luaopen_debug	src/ldblib.c	/^LUAMOD_API int luaopen_debug (lua_State *L) {$/
+luaopen_io	src/liolib.c	/^LUAMOD_API int luaopen_io (lua_State *L) {$/
+luaopen_math	src/lmathlib.c	/^LUAMOD_API int luaopen_math (lua_State *L) {$/
+luaopen_os	src/loslib.c	/^LUAMOD_API int luaopen_os (lua_State *L) {$/
+luaopen_package	src/loadlib.c	/^LUAMOD_API int luaopen_package (lua_State *L) {$/
+luaopen_string	src/lstrlib.c	/^LUAMOD_API int luaopen_string (lua_State *L) {$/
+luaopen_table	src/ltablib.c	/^LUAMOD_API int luaopen_table (lua_State *L) {$/
+mainfunc	src/lparser.c	/^static void mainfunc (LexState *ls, FuncState *fs)/
+mainposition	src/ltable.c	/^static Node *mainposition (const Table *t, const T/
+makemask	src/ldblib.c	/^static int makemask (const char *smask, int count)/
+makeseed	src/lstate.c	/^static unsigned int makeseed (lua_State *L) {$/
+makewhite	src/lgc.c	/^#define makewhite(g,x)	\\$/
+markbeingfnz	src/lgc.c	/^static void markbeingfnz (global_State *g) {$/
+markmt	src/lgc.c	/^static void markmt (global_State *g) {$/
+markobject	src/lgc.c	/^#define markobject(g,t) { if ((t) && iswhite(obj2g/
+markupval	src/lparser.c	/^static void markupval (FuncState *fs, int level) {/
+markvalue	src/lgc.c	/^#define markvalue(g,o) { checkconsistency(o); \\$/
+mask	src/lbitlib.c	/^#define mask(n)		(~((ALLONES << 1) << ((n) - 1)))$/
+match	src/lstrlib.c	/^static const char *match (MatchState *ms, const ch/
+match_capture	src/lstrlib.c	/^static const char *match_capture (MatchState *ms, /
+match_class	src/lstrlib.c	/^static int match_class (int c, int cl) {$/
+matchbalance	src/lstrlib.c	/^static const char *matchbalance (MatchState *ms, c/
+matchbracketclass	src/lstrlib.c	/^static int matchbracketclass (int c, const char *p/
+math_abs	src/lmathlib.c	/^static int math_abs (lua_State *L) {$/
+math_acos	src/lmathlib.c	/^static int math_acos (lua_State *L) {$/
+math_asin	src/lmathlib.c	/^static int math_asin (lua_State *L) {$/
+math_atan	src/lmathlib.c	/^static int math_atan (lua_State *L) {$/
+math_atan2	src/lmathlib.c	/^static int math_atan2 (lua_State *L) {$/
+math_ceil	src/lmathlib.c	/^static int math_ceil (lua_State *L) {$/
+math_cos	src/lmathlib.c	/^static int math_cos (lua_State *L) {$/
+math_cosh	src/lmathlib.c	/^static int math_cosh (lua_State *L) {$/
+math_deg	src/lmathlib.c	/^static int math_deg (lua_State *L) {$/
+math_exp	src/lmathlib.c	/^static int math_exp (lua_State *L) {$/
+math_floor	src/lmathlib.c	/^static int math_floor (lua_State *L) {$/
+math_fmod	src/lmathlib.c	/^static int math_fmod (lua_State *L) {$/
+math_frexp	src/lmathlib.c	/^static int math_frexp (lua_State *L) {$/
+math_ldexp	src/lmathlib.c	/^static int math_ldexp (lua_State *L) {$/
+math_log	src/lmathlib.c	/^static int math_log (lua_State *L) {$/
+math_log10	src/lmathlib.c	/^static int math_log10 (lua_State *L) {$/
+math_max	src/lmathlib.c	/^static int math_max (lua_State *L) {$/
+math_min	src/lmathlib.c	/^static int math_min (lua_State *L) {$/
+math_modf	src/lmathlib.c	/^static int math_modf (lua_State *L) {$/
+math_pow	src/lmathlib.c	/^static int math_pow (lua_State *L) {$/
+math_rad	src/lmathlib.c	/^static int math_rad (lua_State *L) {$/
+math_random	src/lmathlib.c	/^static int math_random (lua_State *L) {$/
+math_randomseed	src/lmathlib.c	/^static int math_randomseed (lua_State *L) {$/
+math_sin	src/lmathlib.c	/^static int math_sin (lua_State *L) {$/
+math_sinh	src/lmathlib.c	/^static int math_sinh (lua_State *L) {$/
+math_sqrt	src/lmathlib.c	/^static int math_sqrt (lua_State *L) {$/
+math_tan	src/lmathlib.c	/^static int math_tan (lua_State *L) {$/
+math_tanh	src/lmathlib.c	/^static int math_tanh (lua_State *L) {$/
+max_expand	src/lstrlib.c	/^static const char *max_expand (MatchState *ms, con/
+maxn	src/ltablib.c	/^static int maxn (lua_State *L) {$/
+min_expand	src/lstrlib.c	/^static const char *min_expand (MatchState *ms, con/
+modinit	src/loadlib.c	/^static void modinit (lua_State *L, const char *mod/
+movegotosout	src/lparser.c	/^static void movegotosout (FuncState *fs, BlockCnt /
+moveto	src/lapi.c	/^static void moveto (lua_State *L, TValue *fr, int /
+need_value	src/lcode.c	/^static int need_value (FuncState *fs, int list) {$/
+new_localvar	src/lparser.c	/^static void new_localvar (LexState *ls, TString *n/
+new_localvarliteral	src/lparser.c	/^#define new_localvarliteral(ls,v) \\$/
+new_localvarliteral_	src/lparser.c	/^static void new_localvarliteral_ (LexState *ls, co/
+newfile	src/liolib.c	/^static LStream *newfile (lua_State *L) {$/
+newlabelentry	src/lparser.c	/^static int newlabelentry (LexState *ls, Labellist /
+newprefile	src/liolib.c	/^static LStream *newprefile (lua_State *L) {$/
+newshrstr	src/lstring.c	/^static TString *newshrstr (lua_State *L, const cha/
+newupvalue	src/lparser.c	/^static int newupvalue (FuncState *fs, TString *nam/
+next	src/llex.c	/^#define next(ls) (ls->current = zgetc(ls->z))$/
+next_ci	src/ldo.c	/^#define next_ci(L) (L->ci = (L->ci->next ? L->ci->/
+nilK	src/lcode.c	/^static int nilK (FuncState *fs) {$/
+noLuaClosure	src/ldebug.c	/^#define noLuaClosure(f)		((f) == NULL || (f)->c.tt/
+noenv	src/loadlib.c	/^static int noenv (lua_State *L) {$/
+noextrachars	src/lua.c	/^#define noextrachars(x)		{if ((x)[2] != '\\0') ret/
+nospecials	src/lstrlib.c	/^static int nospecials (const char *p, size_t l) {$/
+novariant	src/lobject.h	/^#define novariant(x)	((x) & 0x0F)$/
+nsize	src/lua.h	/^typedef void * (*lua_Alloc) (void *ud, void *ptr, /
+num_	src/lobject.h	/^#define num_(o)		(val_(o).n)$/
+numusearray	src/ltable.c	/^static int numusearray (const Table *t, int *nums)/
+numusehash	src/ltable.c	/^static int numusehash (const Table *t, int *nums, /
+nvalue	src/lobject.h	/^#define nvalue(o)	check_exp(ttisnumber(o), num_(o)/
+obj2gco	src/lstate.h	/^#define obj2gco(v)	(cast(GCObject *, (v)))$/
+objtypename	src/ltm.h	/^#define objtypename(x)	ttypename(ttypenv(x))$/
+open_func	src/lparser.c	/^static void open_func (LexState *ls, FuncState *fs/
+opencheck	src/liolib.c	/^static void opencheck (lua_State *L, const char *f/
+opmode	src/lopcodes.c	/^#define opmode(t,a,b,c,m) (((t)<<7) | ((a)<<6) | (/
+os_clock	src/loslib.c	/^static int os_clock (lua_State *L) {$/
+os_date	src/loslib.c	/^static int os_date (lua_State *L) {$/
+os_difftime	src/loslib.c	/^static int os_difftime (lua_State *L) {$/
+os_execute	src/loslib.c	/^static int os_execute (lua_State *L) {$/
+os_exit	src/loslib.c	/^static int os_exit (lua_State *L) {$/
+os_getenv	src/loslib.c	/^static int os_getenv (lua_State *L) {$/
+os_remove	src/loslib.c	/^static int os_remove (lua_State *L) {$/
+os_rename	src/loslib.c	/^static int os_rename (lua_State *L) {$/
+os_setlocale	src/loslib.c	/^static int os_setlocale (lua_State *L) {$/
+os_time	src/loslib.c	/^static int os_time (lua_State *L) {$/
+os_tmpname	src/loslib.c	/^static int os_tmpname (lua_State *L) {$/
+otherwhite	src/lgc.h	/^#define otherwhite(g)	(g->currentwhite ^ WHITEBITS/
+pack	src/ltablib.c	/^static int pack (lua_State *L) {$/
+pairsmeta	src/lbaselib.c	/^static int pairsmeta (lua_State *L, const char *me/
+panic	src/lauxlib.c	/^static int panic (lua_State *L) {$/
+parlist	src/lparser.c	/^static void parlist (LexState *ls) {$/
+patchlistaux	src/lcode.c	/^static void patchlistaux (FuncState *fs, int list,/
+patchtestreg	src/lcode.c	/^static int patchtestreg (FuncState *fs, int node, /
+pcRel	src/ldebug.h	/^#define pcRel(pc, p)	(cast(int, (pc) - (p)->code) /
+pcallcont	src/lbaselib.c	/^static int pcallcont (lua_State *L) {$/
+pmain	src/lua.c	/^static int pmain (lua_State *L) {$/
+posrelat	src/lstrlib.c	/^static size_t posrelat (ptrdiff_t pos, size_t len)/
+preinit_state	src/lstate.c	/^static void preinit_state (lua_State *L, global_St/
+primaryexp	src/lparser.c	/^static void primaryexp (LexState *ls, expdesc *v) /
+print_usage	src/lua.c	/^static void print_usage (const char *badoption) {$/
+print_version	src/lua.c	/^static void print_version (void) {$/
+propagateall	src/lgc.c	/^static void propagateall (global_State *g) {$/
+propagatelist	src/lgc.c	/^static void propagatelist (global_State *g, GCObje/
+propagatemark	src/lgc.c	/^static void propagatemark (global_State *g) {$/
+push_captures	src/lstrlib.c	/^static int push_captures (MatchState *ms, const ch/
+push_onecapture	src/lstrlib.c	/^static void push_onecapture (MatchState *ms, int i/
+pushclosure	src/lvm.c	/^static void pushclosure (lua_State *L, Proto *p, U/
+pusherror	src/loadlib.c	/^static void pusherror (lua_State *L) {$/
+pushfuncname	src/lauxlib.c	/^static void pushfuncname (lua_State *L, lua_Debug /
+pushglobalfuncname	src/lauxlib.c	/^static int pushglobalfuncname (lua_State *L, lua_D/
+pushline	src/lua.c	/^static int pushline (lua_State *L, int firstline) /
+pushnexttemplate	src/loadlib.c	/^static const char *pushnexttemplate (lua_State *L,/
+pushstr	src/lobject.c	/^static void pushstr (lua_State *L, const char *str/
+pvalue	src/lobject.h	/^#define pvalue(o)	check_exp(ttislightuserdata(o), /
+rawgco2ts	src/lstate.h	/^#define rawgco2ts(o)  \\$/
+rawgco2u	src/lstate.h	/^#define rawgco2u(o)	check_exp((o)->gch.tt == LUA_T/
+rawtsvalue	src/lobject.h	/^#define rawtsvalue(o)	check_exp(ttisstring(o), &va/
+rawuvalue	src/lobject.h	/^#define rawuvalue(o)	check_exp(ttisuserdata(o), &v/
+read_all	src/liolib.c	/^static void read_all (lua_State *L, FILE *f) {$/
+read_chars	src/liolib.c	/^static int read_chars (lua_State *L, FILE *f, size/
+read_line	src/liolib.c	/^static int read_line (lua_State *L, FILE *f, int c/
+read_long_string	src/llex.c	/^static void read_long_string (LexState *ls, SemInf/
+read_number	src/liolib.c	/^static int read_number (lua_State *L, FILE *f) {$/
+read_numeral	src/llex.c	/^static void read_numeral (LexState *ls, SemInfo *s/
+read_string	src/llex.c	/^static void read_string (LexState *ls, int del, Se/
+readable	src/loadlib.c	/^static int readable (const char *filename) {$/
+readdecesc	src/llex.c	/^static int readdecesc (LexState *ls) {$/
+reader	src/luac.c	/^static const char* reader(lua_State *L, void *ud, /
+readhexa	src/lobject.c	/^static lua_Number readhexa (const char **s, lua_Nu/
+readhexaesc	src/llex.c	/^static int readhexaesc (LexState *ls) {$/
+reallymarkobject	src/lgc.c	/^static void reallymarkobject (global_State *g, GCO/
+recfield	src/lparser.c	/^static void recfield (LexState *ls, struct ConsCon/
+recover	src/ldo.c	/^static int recover (lua_State *L, int status) {$/
+registerlocalvar	src/lparser.c	/^static int registerlocalvar (LexState *ls, TString/
+rehash	src/ltable.c	/^static void rehash (lua_State *L, Table *t, const /
+remarkupvals	src/lgc.c	/^static void remarkupvals (global_State *g) {$/
+removeentry	src/lgc.c	/^static void removeentry (Node *n) {$/
+removevalues	src/lcode.c	/^static void removevalues (FuncState *fs, int list)/
+removevars	src/lparser.c	/^static void removevars (FuncState *fs, int tolevel/
+repeatstat	src/lparser.c	/^static void repeatstat (LexState *ls, int line) {$/
+report	src/lua.c	/^static int report (lua_State *L, int status) {$/
+resetbit	src/lgc.h	/^#define resetbit(x,b)		resetbits(x, bitmask(b))$/
+resetbits	src/lgc.h	/^#define resetbits(x,m)		((x) &= cast(lu_byte, ~(m)/
+resethookcount	src/ldebug.h	/^#define resethookcount(L)	(L->hookcount = L->baseh/
+resetoldbit	src/lgc.h	/^#define resetoldbit(o)	resetbit((o)->gch.marked, O/
+restartcollection	src/lgc.c	/^static void restartcollection (global_State *g) {$/
+restorestack	src/ldo.h	/^#define restorestack(L,n)	((TValue *)((char *)L->s/
+resume	src/ldo.c	/^static void resume (lua_State *L, void *ud) {$/
+resume_error	src/ldo.c	/^static l_noret resume_error (lua_State *L, const c/
+retraversegrays	src/lgc.c	/^static void retraversegrays (global_State *g) {$/
+retstat	src/lparser.c	/^static void retstat (LexState *ls) {$/
+righttt	src/lobject.h	/^#define righttt(obj)		(ttype(obj) == gcvalue(obj)-/
+rttype	src/lobject.h	/^#define rttype(o)	((o)->tt_)$/
+runargs	src/lua.c	/^static int runargs (lua_State *L, char **argv, int/
+s	src/lfunc.o	/^/
+save	src/llex.c	/^static void save (LexState *ls, int c) {$/
+save_and_next	src/llex.c	/^#define save_and_next(ls) (save(ls, ls->current), /
+savestack	src/ldo.h	/^#define savestack(L,p)		((char *)(p) - (char *)L->/
+scanformat	src/lstrlib.c	/^static const char *scanformat (lua_State *L, const/
+searcher_C	src/loadlib.c	/^static int searcher_C (lua_State *L) {$/
+searcher_Croot	src/loadlib.c	/^static int searcher_Croot (lua_State *L) {$/
+searcher_Lua	src/loadlib.c	/^static int searcher_Lua (lua_State *L) {$/
+searcher_preload	src/loadlib.c	/^static int searcher_preload (lua_State *L) {$/
+searchpath	src/loadlib.c	/^static const char *searchpath (lua_State *L, const/
+searchupvalue	src/lparser.c	/^static int searchupvalue (FuncState *fs, TString */
+searchvar	src/lparser.c	/^static int searchvar (FuncState *fs, TString *n) {/
+semerror	src/lparser.c	/^static l_noret semerror (LexState *ls, const char /
+separatetobefnz	src/lgc.c	/^static void separatetobefnz (lua_State *L, int all/
+set2	src/ltablib.c	/^static void set2 (lua_State *L, int i, int j) {$/
+set_env	src/loadlib.c	/^static void set_env (lua_State *L) {$/
+setarg	src/lopcodes.h	/^#define setarg(i,v,pos,size)	((i) = (((i)&MASK0(si/
+setarrayvector	src/ltable.c	/^static void setarrayvector (lua_State *L, Table *t/
+setbits	src/lgc.h	/^#define setbits(x,m)		((x) |= (m))$/
+setboolfield	src/loslib.c	/^static void setboolfield (lua_State *L, const char/
+setbvalue	src/lobject.h	/^#define setbvalue(obj,x) \\$/
+setclCvalue	src/lobject.h	/^#define setclCvalue(L,obj,x) \\$/
+setclLvalue	src/lobject.h	/^#define setclLvalue(L,obj,x) \\$/
+setdeadvalue	src/lobject.h	/^#define setdeadvalue(obj)	settt_(obj, LUA_TDEADKEY/
+seterrorobj	src/ldo.c	/^static void seterrorobj (lua_State *L, int errcode/
+setfield	src/loslib.c	/^static void setfield (lua_State *L, const char *ke/
+setfvalue	src/lobject.h	/^#define setfvalue(obj,x) \\$/
+setgcovalue	src/lobject.h	/^#define setgcovalue(L,obj,x) \\$/
+sethvalue	src/lobject.h	/^#define sethvalue(L,obj,x) \\$/
+setnilvalue	src/lobject.h	/^#define setnilvalue(obj) settt_(obj, LUA_TNIL)$/
+setnodevector	src/ltable.c	/^static void setnodevector (lua_State *L, Table *t,/
+setnvalue	src/lobject.h	/^#define setnvalue(obj,x) \\$/
+setobj	src/lobject.h	/^#define setobj(L,obj1,obj2) \\$/
+setpath	src/loadlib.c	/^static void setpath (lua_State *L, const char *fie/
+setpause	src/lgc.c	/^static void setpause (global_State *g, l_mem estim/
+setprogdir	src/loadlib.c	/^#define setprogdir(L)		((void)0)$/
+setpvalue	src/lobject.h	/^#define setpvalue(obj,x) \\$/
+setsvalue	src/lobject.h	/^#define setsvalue(L,obj,x) \\$/
+settabsb	src/ldblib.c	/^static void settabsb (lua_State *L, const char *i,/
+settabsi	src/ldblib.c	/^static void settabsi (lua_State *L, const char *i,/
+settabss	src/ldblib.c	/^static void settabss (lua_State *L, const char *i,/
+setthvalue	src/lobject.h	/^#define setthvalue(L,obj,x) \\$/
+settt_	src/lobject.h	/^#define settt_(o,t)	((o)->tt_=(t))$/
+setuvalue	src/lobject.h	/^#define setuvalue(L,obj,x) \\$/
+simpleexp	src/lparser.c	/^static void simpleexp (LexState *ls, expdesc *v) {/
+singlematch	src/lstrlib.c	/^static int singlematch (MatchState *ms, const char/
+singlestep	src/lgc.c	/^static lu_mem singlestep (lua_State *L) {$/
+singlevar	src/lparser.c	/^static void singlevar (LexState *ls, expdesc *var)/
+singlevaraux	src/lparser.c	/^static int singlevaraux (FuncState *fs, TString *n/
+sizeCclosure	src/lfunc.h	/^#define sizeCclosure(n)	(cast(int, sizeof(CClosure/
+sizeLclosure	src/lfunc.h	/^#define sizeLclosure(n)	(cast(int, sizeof(LClosure/
+sizenode	src/lobject.h	/^#define sizenode(t)	(twoto((t)->lsizenode))$/
+sizestring	src/lstring.h	/^#define sizestring(s)	(sizeof(union TString)+((s)-/
+sizeudata	src/lstring.h	/^#define sizeudata(u)	(sizeof(union Udata)+(u)->len/
+skipBOM	src/lauxlib.c	/^static int skipBOM (LoadF *lf) {$/
+skip_sep	src/llex.c	/^static int skip_sep (LexState *ls) {$/
+skipcomment	src/lauxlib.c	/^static int skipcomment (LoadF *lf, int *cp) {$/
+skipnoopstat	src/lparser.c	/^static void skipnoopstat (LexState *ls) {$/
+sort	src/ltablib.c	/^static int sort (lua_State *L) {$/
+sort_comp	src/ltablib.c	/^static int sort_comp (lua_State *L, int a, int b) /
+stack_init	src/lstate.c	/^static void stack_init (lua_State *L1, lua_State */
+stackinuse	src/ldo.c	/^static int stackinuse (lua_State *L) {$/
+start_capture	src/lstrlib.c	/^static const char *start_capture (MatchState *ms, /
+statement	src/lparser.c	/^static void statement (LexState *ls) {$/
+statlist	src/lparser.c	/^static void statlist (LexState *ls) {$/
+str_byte	src/lstrlib.c	/^static int str_byte (lua_State *L) {$/
+str_char	src/lstrlib.c	/^static int str_char (lua_State *L) {$/
+str_checkname	src/lparser.c	/^static TString *str_checkname (LexState *ls) {$/
+str_dump	src/lstrlib.c	/^static int str_dump (lua_State *L) {$/
+str_find	src/lstrlib.c	/^static int str_find (lua_State *L) {$/
+str_find_aux	src/lstrlib.c	/^static int str_find_aux (lua_State *L, int find) {/
+str_format	src/lstrlib.c	/^static int str_format (lua_State *L) {$/
+str_gsub	src/lstrlib.c	/^static int str_gsub (lua_State *L) {$/
+str_len	src/lstrlib.c	/^static int str_len (lua_State *L) {$/
+str_lower	src/lstrlib.c	/^static int str_lower (lua_State *L) {$/
+str_match	src/lstrlib.c	/^static int str_match (lua_State *L) {$/
+str_rep	src/lstrlib.c	/^static int str_rep (lua_State *L) {$/
+str_reverse	src/lstrlib.c	/^static int str_reverse (lua_State *L) {$/
+str_sub	src/lstrlib.c	/^static int str_sub (lua_State *L) {$/
+str_upper	src/lstrlib.c	/^static int str_upper (lua_State *L) {$/
+stringtable	src/lstate.h	/^} stringtable;$/
+subexpr	src/lparser.c	/^static BinOpr subexpr (LexState *ls, expdesc *v, i/
+suffixedexp	src/lparser.c	/^static void suffixedexp (LexState *ls, expdesc *v)/
+svalue	src/lobject.h	/^#define svalue(o)       getstr(rawtsvalue(o))$/
+sweeplist	src/lgc.c	/^static GCObject **sweeplist (lua_State *L, GCObjec/
+sweepthread	src/lgc.c	/^static void sweepthread (lua_State *L, lua_State */
+sweeptolive	src/lgc.c	/^static GCObject **sweeptolive (lua_State *L, GCObj/
+sweepwholelist	src/lgc.c	/^#define sweepwholelist(L,p)	sweeplist(L,p,MAX_LUME/
+sz	src/lua.h	/^typedef const char * (*lua_Reader) (lua_State *L, /
+tag2tt	src/lobject.h	/^#define tag2tt(t)	(NNMARK | (t))$/
+tag_error	src/lauxlib.c	/^static void tag_error (lua_State *L, int narg, int/
+tconcat	src/ltablib.c	/^static int tconcat (lua_State *L) {$/
+testAMode	src/lopcodes.h	/^#define testAMode(m)	(luaP_opmodes[m] & (1 << 6))$/
+testTMode	src/lopcodes.h	/^#define testTMode(m)	(luaP_opmodes[m] & (1 << 7))$/
+test_eof	src/liolib.c	/^static int test_eof (lua_State *L, FILE *f) {$/
+test_then_block	src/lparser.c	/^static void test_then_block (LexState *ls, int *es/
+testbit	src/lgc.h	/^#define testbit(x,b)		testbits(x, bitmask(b))$/
+testbits	src/lgc.h	/^#define testbits(x,m)		((x) & (m))$/
+testnext	src/lparser.c	/^static int testnext (LexState *ls, int c) {$/
+testprop	src/lctype.h	/^#define testprop(c,p)	(luai_ctype_[(c)+1] & (p))$/
+thvalue	src/lobject.h	/^#define thvalue(o)	check_exp(ttisthread(o), &val_(/
+tinsert	src/ltablib.c	/^static int tinsert (lua_State *L) {$/
+tofile	src/liolib.c	/^static FILE *tofile (lua_State *L) {$/
+tolstream	src/liolib.c	/^#define tolstream(L)	((LStream *)luaL_checkudata(L/
+tonumber	src/lvm.h	/^#define tonumber(o,n)	(ttisnumber(o) || (((o) = lu/
+toproto	src/luac.c	/^#define toproto(L,i) getproto(L->top+(i))$/
+tostring	src/lvm.h	/^#define tostring(L,o) (ttisstring(o) || (luaV_tost/
+traceback	src/lua.c	/^static int traceback (lua_State *L) {$/
+traceexec	src/lvm.c	/^static void traceexec (lua_State *L) {$/
+traverseCclosure	src/lgc.c	/^static lu_mem traverseCclosure (global_State *g, C/
+traverseLclosure	src/lgc.c	/^static lu_mem traverseLclosure (global_State *g, L/
+traverseephemeron	src/lgc.c	/^static int traverseephemeron (global_State *g, Tab/
+traverseproto	src/lgc.c	/^static int traverseproto (global_State *g, Proto */
+traversestack	src/lgc.c	/^static lu_mem traversestack (global_State *g, lua_/
+traversestrongtable	src/lgc.c	/^static void traversestrongtable (global_State *g, /
+traversetable	src/lgc.c	/^static lu_mem traversetable (global_State *g, Tabl/
+traverseweakvalue	src/lgc.c	/^static void traverseweakvalue (global_State *g, Ta/
+treatstackoption	src/ldblib.c	/^static void treatstackoption (lua_State *L, lua_St/
+tremove	src/ltablib.c	/^static int tremove (lua_State *L) {$/
+trim	src/lbitlib.c	/^#define trim(x)		((x) & ALLONES)$/
+trydecpoint	src/llex.c	/^static void trydecpoint (LexState *ls, SemInfo *se/
+tryfuncTM	src/ldo.c	/^static StkId tryfuncTM (lua_State *L, StkId func) /
+tsvalue	src/lobject.h	/^#define tsvalue(o)	(&rawtsvalue(o)->tsv)$/
+tt_	src/lobject.h	/^#define tt_(o)		((o)->u.i.tt__)$/
+ttisCclosure	src/lobject.h	/^#define ttisCclosure(o)		checktag((o), ctb(LUA_TCC/
+ttisLclosure	src/lobject.h	/^#define ttisLclosure(o)		checktag((o), ctb(LUA_TLC/
+ttisboolean	src/lobject.h	/^#define ttisboolean(o)		checktag((o), LUA_TBOOLEAN/
+ttisclosure	src/lobject.h	/^#define ttisclosure(o)		((rttype(o) & 0x1F) == LUA/
+ttisdeadkey	src/lobject.h	/^#define ttisdeadkey(o)		checktag((o), LUA_TDEADKEY/
+ttisequal	src/lobject.h	/^#define ttisequal(o1,o2)	(rttype(o1) == rttype(o2)/
+ttisfunction	src/lobject.h	/^#define ttisfunction(o)		checktype(o, LUA_TFUNCTIO/
+ttislcf	src/lobject.h	/^#define ttislcf(o)		checktag((o), LUA_TLCF)$/
+ttislightuserdata	src/lobject.h	/^#define ttislightuserdata(o)	checktag((o), LUA_TLI/
+ttislngstring	src/lobject.h	/^#define ttislngstring(o)	checktag((o), ctb(LUA_TLN/
+ttisnil	src/lobject.h	/^#define ttisnil(o)		checktag((o), LUA_TNIL)$/
+ttisnumber	src/lobject.h	/^#define ttisnumber(o)		checktag((o), LUA_TNUMBER)$/
+ttisshrstring	src/lobject.h	/^#define ttisshrstring(o)	checktag((o), ctb(LUA_TSH/
+ttisstring	src/lobject.h	/^#define ttisstring(o)		checktype((o), LUA_TSTRING)/
+ttistable	src/lobject.h	/^#define ttistable(o)		checktag((o), ctb(LUA_TTABLE/
+ttisthread	src/lobject.h	/^#define ttisthread(o)		checktag((o), ctb(LUA_TTHRE/
+ttisuserdata	src/lobject.h	/^#define ttisuserdata(o)		checktag((o), ctb(LUA_TUS/
+ttype	src/lobject.h	/^#define ttype(o)	(rttype(o) & 0x3F)$/
+ttypename	src/ltm.h	/^#define ttypename(x)	luaT_typenames_[(x) + 1]$/
+ttypenv	src/lobject.h	/^#define ttypenv(o)	(novariant(rttype(o)))$/
+twoto	src/lobject.h	/^#define twoto(x)	(1<<(x))$/
+txtToken	src/llex.c	/^static const char *txtToken (LexState *ls, int tok/
+typeerror	src/lauxlib.c	/^static int typeerror (lua_State *L, int narg, cons/
+uchar	src/lstrlib.c	/^#define uchar(c)	((unsigned char)(c))$/
+ud	src/ldo.h	/^typedef void (*Pfunc) (lua_State *L, void *ud);$/
+udata2finalize	src/lgc.c	/^static GCObject *udata2finalize (global_State *g) /
+unbound_search	src/ltable.c	/^static int unbound_search (Table *t, unsigned int /
+undefgoto	src/lparser.c	/^static l_noret undefgoto (LexState *ls, Labeldesc /
+unlinkupval	src/lfunc.c	/^static void unlinkupval (UpVal *uv) {$/
+unmakemask	src/ldblib.c	/^static char *unmakemask (int mask, char *smask) {$/
+unpack	src/ltablib.c	/^static int unpack (lua_State *L) {$/
+unroll	src/ldo.c	/^static void unroll (lua_State *L, void *ud) {$/
+upvalname	src/ldebug.c	/^static const char *upvalname (Proto *p, int uv) {$/
+usage	src/luac.c	/^static void usage(const char* message)$/
+uvalue	src/lobject.h	/^#define uvalue(o)	(&rawuvalue(o)->uv)$/
+v_	src/lobject.h	/^#define v_(o)		((o)->u.i.v__)$/
+val_	src/lobject.h	/^#define val_(o)		((o)->value_)$/
+valiswhite	src/lgc.h	/^#define valiswhite(x)	(iscollectable(x) && iswhite/
+vkisinreg	src/lparser.h	/^#define vkisinreg(k)	((k) == VNONRELOC || (k) == V/
+vkisvar	src/lparser.h	/^#define vkisvar(k)	(VLOCAL <= (k) && (k) <= VINDEX/
+vmcase	src/lvm.c	/^#define vmcase(l,b)	case l: {b}  break;$/
+vmcasenb	src/lvm.c	/^#define vmcasenb(l,b)	case l: {b}		\/* nb = no bre/
+vmdispatch	src/lvm.c	/^#define vmdispatch(o)	switch(o)$/
+whilestat	src/lparser.c	/^static void whilestat (LexState *ls, int line) {$/
+white2gray	src/lgc.c	/^#define white2gray(x)	resetbits(gch(x)->marked, WH/
+writer	src/lstrlib.c	/^static int writer (lua_State *L, const void* b, si/
+yindex	src/lparser.c	/^static void yindex (LexState *ls, expdesc *v) {$/
+zgetc	src/lzio.h	/^#define zgetc(z)  (((z)->n--)>0 ?  cast_uchar(*(z)/

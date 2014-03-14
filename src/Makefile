@@ -42,8 +42,10 @@ LUA_O=	lua.o
 LUAC_T=	luac
 LUAC_O=	luac.o
 
+COG=cog 
+
 ALL_O= $(BASE_O) $(LUA_O) $(LUAC_O)
-ALL_T= $(LUA_A) $(LUA_T) $(LUAC_T)
+ALL_T= $(COG) $(LUA_A) $(LUA_T) $(LUAC_T) 
 ALL_A= $(LUA_A)
 
 # Targets start here.
@@ -54,6 +56,9 @@ all:	$(ALL_T)
 o:	$(ALL_O)
 
 a:	$(ALL_A)
+
+$(COG):
+	python -m cogapp -r lvm.c
 
 $(LUA_A): $(BASE_O)
 	$(AR) $@ $(BASE_O)

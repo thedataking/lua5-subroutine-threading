@@ -542,17 +542,25 @@ void luaV_finishOp (lua_State *L) {
     lua_assert(base <= L->top && L->top < L->stack + L->stacksize); \
 	goto *opcode_to_addr[GET_OPCODE(i)];  }
 
+
 void luaV_execute (lua_State *L) {
-    CallInfo *ci = L->ci;
+    /*[[[cog
+    import cog
+    from instructions import inst_map
+
+    inst_str = ", ".join(map(lambda i : "&&%s" % i["name"], inst_map))
+    cog.outl("static void *opcode_to_addr[] = {%s};" % inst_str)
+
+
+    ]]]*/
+    static void *opcode_to_addr[] = {&&OP_MOVE, &&OP_LOADK, &&OP_LOADKX, &&OP_LOADBOOL, &&OP_LOADNIL, &&OP_GETUPVAL, &&OP_GETTABUP, &&OP_GETTABLE, &&OP_SETTABUP, &&OP_SETUPVAL, &&OP_SETTABLE, &&OP_NEWTABLE, &&OP_SELF, &&OP_ADD, &&OP_SUB, &&OP_MUL, &&OP_DIV, &&OP_MOD, &&OP_POW, &&OP_UNM, &&OP_NOT, &&OP_LEN, &&OP_CONCAT, &&OP_JMP, &&OP_EQ, &&OP_LT, &&OP_LE, &&OP_TEST, &&OP_TESTSET, &&OP_CALL, &&OP_TAILCALL, &&OP_RETURN, &&OP_FORLOOP, &&OP_FORPREP, &&OP_TFORCALL, &&OP_TFORLOOP, &&OP_SETLIST, &&OP_CLOSURE, &&OP_VARARG, &&OP_EXTRAARG};
+    //[[[end]]]
+	CallInfo *ci = L->ci;
     LClosure *cl;
     TValue *k;
     StkId base;
     Instruction i;
     StkId ra;
-    static void *opcode_to_addr[] = {&&OP_MOVE, &&OP_LOADK, &&OP_LOADKX, &&OP_LOADBOOL, &&OP_LOADNIL, &&OP_GETUPVAL, &&OP_GETTABUP, &&OP_GETTABLE, &&OP_SETTABUP, &&OP_SETUPVAL,
-    		&&OP_SETTABLE, &&OP_NEWTABLE, &&OP_SELF, &&OP_ADD, &&OP_SUB, &&OP_MUL, &&OP_DIV, &&OP_MOD, &&OP_POW, &&OP_UNM, &&OP_NOT, &&OP_LEN, &&OP_CONCAT, &&OP_JMP, &&OP_EQ,
-    		&& OP_LT, &&OP_LE, &&OP_TEST, &&OP_TESTSET, &&OP_CALL, &&OP_TAILCALL, &&OP_RETURN, &&OP_FORLOOP,  &&OP_FORPREP, &&OP_TFORCALL, &&OP_TFORLOOP, &&OP_SETLIST,
-    		&&OP_CLOSURE, &&OP_VARARG, &&OP_EXTRAARG};
    newframe:  /* reentry point when frame changes (call/return) */
     lua_assert(ci == L->ci);
     cl = clLvalue(ci->func);

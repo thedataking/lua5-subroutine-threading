@@ -1,3 +1,5 @@
 .idea
 Lua5Srt.xcodeproj
 
+
+*.pyc

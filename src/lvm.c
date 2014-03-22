@@ -540,9 +540,11 @@ void luaV_finishOp (lua_State *L) {
     ra = RA(i); \
     lua_assert(base == ci->u.l.base); \
     lua_assert(base <= L->top && L->top < L->stack + L->stacksize); \
-	goto *opcode_to_addr[GET_OPCODE(i)];  }
+	goto *((int**)GET_OPCODE(i));  }
 
 
+
+__attribute__((__noinline__)) /* to ensure label addresses don't change when threaded code */
 void luaV_execute (lua_State *L) {
     /*[[[cog
     import cog
@@ -561,11 +563,26 @@ void luaV_execute (lua_State *L) {
     StkId base;
     Instruction i;
     StkId ra;
+
+
    newframe:  /* reentry point when frame changes (call/return) */
     lua_assert(ci == L->ci);
     cl = clLvalue(ci->func);
     k = cl->p->k;
     base = ci->u.l.base;
+
+    // rewrite instruction opcodes to addresses of the operation implementations
+    if(1) {
+    	int sc, opcode;
+        const Proto *p = cl->p;
+        for(sc = 0; sc < p->sizecode; sc++) {
+        	i = p->code[sc];
+        	printf("opcode1 %d\n", GET_OPCODE(i));
+        	opcode = GET_OPCODE(i);
+        	SET_OPCODE(p->code[sc], opcode_to_addr[opcode]);
+        	printf("opcode2 %xl vs %xl\n", GET_OPCODE(p->code[sc]), opcode_to_addr[opcode]);
+        }
+    }
 
 
     /*[[[cog

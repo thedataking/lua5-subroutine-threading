@@ -337,11 +337,13 @@
 */
 #if LUAI_BITSINT >= 32		/* { */
 #define LUA_INT32	int
+#define LUA_INT64	long long int
 #define LUAI_UMEM	size_t
 #define LUAI_MEM	ptrdiff_t
 #else				/* }{ */
 /* 16-bit ints */
 #define LUA_INT32	long
+#define LUA_INT64	long long int
 #define LUAI_UMEM	unsigned long
 #define LUAI_MEM	long
 #endif				/* } */

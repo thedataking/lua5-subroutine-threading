@@ -16,6 +16,7 @@
 
 
 typedef unsigned LUA_INT32 lu_int32;
+typedef unsigned LUA_INT64 lu_int64;
 
 typedef LUAI_UMEM lu_mem;
 
@@ -130,7 +131,7 @@ typedef LUAI_UACNUMBER l_uacNumber;
 ** type for virtual-machine instructions
 ** must be an unsigned with (at least) 4 bytes (see details in lopcodes.h)
 */
-typedef lu_int32 Instruction;
+typedef lu_int64 Instruction;
 
 
 

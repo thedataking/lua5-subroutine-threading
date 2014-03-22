@@ -526,7 +526,6 @@ void luaV_finishOp (lua_State *L) {
         } \
         else { Protect(luaV_arith(L, ra, rb, rc, tm)); } }
 
-
 #define vmdispatch(o)	switch(o)
 #define vmcase(l,b)	case l: {b}  break;
 #define vmcasenb(l,b)	case l: {b}		/* nb = no break */
@@ -540,7 +539,8 @@ void luaV_finishOp (lua_State *L) {
     ra = RA(i); \
     lua_assert(base == ci->u.l.base); \
     lua_assert(base <= L->top && L->top < L->stack + L->stacksize); \
-	goto *((int**)GET_OPCODE(i));  }
+    printf("dispatching to %p\n", (void *)GET_OPCODE(i)); \
+	goto *((void*)GET_OPCODE(i));  }
 
 
 
@@ -572,18 +572,17 @@ void luaV_execute (lua_State *L) {
     base = ci->u.l.base;
 
     // rewrite instruction opcodes to addresses of the operation implementations
-    if(1) {
+    const Proto *p = cl->p;
+    if(GET_OPCODE(p->code[0]) <= OP_EXTRAARG) {
     	int sc, opcode;
-        const Proto *p = cl->p;
         for(sc = 0; sc < p->sizecode; sc++) {
         	i = p->code[sc];
-        	printf("opcode1 %d\n", GET_OPCODE(i));
         	opcode = GET_OPCODE(i);
+        	if(opcode == OP_CALL)
+        		printf("opcode1 %d -> %p\n", GET_OPCODE(i), opcode_to_addr[opcode]);
         	SET_OPCODE(p->code[sc], opcode_to_addr[opcode]);
-        	printf("opcode2 %xl vs %xl\n", GET_OPCODE(p->code[sc]), opcode_to_addr[opcode]);
         }
     }
-
 
     /*[[[cog
         import cog

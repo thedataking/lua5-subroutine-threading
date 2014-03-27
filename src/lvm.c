@@ -542,8 +542,6 @@ void luaV_finishOp (lua_State *L) {
     printf("dispatching to %p\n", (void *)GET_OPCODE(i)); \
 	goto *((void*)GET_OPCODE(i));  }
 
-
-
 __attribute__((__noinline__)) /* to ensure label addresses don't change when threaded code */
 void luaV_execute (lua_State *L) {
     /*[[[cog
@@ -557,7 +555,7 @@ void luaV_execute (lua_State *L) {
     ]]]*/
     static void *opcode_to_addr[] = {&&OP_MOVE, &&OP_LOADK, &&OP_LOADKX, &&OP_LOADBOOL, &&OP_LOADNIL, &&OP_GETUPVAL, &&OP_GETTABUP, &&OP_GETTABLE, &&OP_SETTABUP, &&OP_SETUPVAL, &&OP_SETTABLE, &&OP_NEWTABLE, &&OP_SELF, &&OP_ADD, &&OP_SUB, &&OP_MUL, &&OP_DIV, &&OP_MOD, &&OP_POW, &&OP_UNM, &&OP_NOT, &&OP_LEN, &&OP_CONCAT, &&OP_JMP, &&OP_EQ, &&OP_LT, &&OP_LE, &&OP_TEST, &&OP_TESTSET, &&OP_CALL, &&OP_TAILCALL, &&OP_RETURN, &&OP_FORLOOP, &&OP_FORPREP, &&OP_TFORCALL, &&OP_TFORLOOP, &&OP_SETLIST, &&OP_CLOSURE, &&OP_VARARG, &&OP_EXTRAARG};
     //[[[end]]]
-	CallInfo *ci = L->ci;
+    CallInfo *ci = L->ci;
     LClosure *cl;
     TValue *k;
     StkId base;
@@ -573,7 +571,7 @@ void luaV_execute (lua_State *L) {
 
     // rewrite instruction opcodes to addresses of the operation implementations
     const Proto *p = cl->p;
-    if(GET_OPCODE(p->code[0]) <= OP_EXTRAARG) {
+    if(GET_OPCODE(p->code[0]) < NUM_OPCODES) {
     	int sc, opcode;
         for(sc = 0; sc < p->sizecode; sc++) {
         	i = p->code[sc];

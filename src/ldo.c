@@ -275,10 +275,8 @@ static StkId tryfuncTM (lua_State *L, StkId func) {
   const TValue *tm = luaT_gettmbyobj(L, func, TM_CALL);
   StkId p;
   ptrdiff_t funcr = savestack(L, func);
-  printf("agnes\n");
   if (!ttisfunction(tm))
     luaG_typeerror(L, func, "call");
-  printf("dorthe\n");
   /* Open a hole inside the stack at `func' */
   for (p = L->top; p > func; p--) setobjs2s(L, p, p-1);
   incr_top(L);
@@ -354,7 +352,6 @@ int luaD_precall (lua_State *L, StkId func, int nresults) {
       return 0;
     }
     default: {  /* not a function */
-      printf("frank\n");
       func = tryfuncTM(L, func);  /* retry with 'function' tag method */
       return luaD_precall(L, func, nresults);  /* now it must be a function */
     }

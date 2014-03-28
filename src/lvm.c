@@ -539,8 +539,36 @@ void luaV_finishOp (lua_State *L) {
     ra = RA(i); \
     lua_assert(base == ci->u.l.base); \
     lua_assert(base <= L->top && L->top < L->stack + L->stacksize); \
-    printf("dispatching to %p\n", (void *)GET_OPCODE(i)); \
 	goto *((void*)GET_OPCODE(i));  }
+
+static union { LUA_NUMBER n; OpCode o; LUA_INT32 i; void * ptr; } map; /* convert between double and pointer types */
+static Table *addr_to_opcode = NULL; /* map pointers to opcodes */
+
+void set_opcode(lua_State *L, void *ptr, int opcode) {
+	/* build key */
+	TValue key;
+	map.ptr = ptr;
+	setnvalue(&key, map.n);
+
+	/* set value for key */
+	map.o = opcode;
+	TValue *ret = luaH_set(L, addr_to_opcode, &key);
+	setnvalue(ret, map.n);
+}
+
+int get_opcode(LUA_INT32 ptr) {
+	/* build key */
+	TValue key;
+	map.i = ptr;
+	setnvalue(&key, map.n);
+
+    /* retrieve value for key */
+	const TValue *val = luaH_get(addr_to_opcode, &key);
+	map.n = num_(val);
+	return map.o;
+}
+
+#include <assert.h>
 
 __attribute__((__noinline__)) /* to ensure label addresses don't change when threaded code */
 void luaV_execute (lua_State *L) {
@@ -562,6 +590,58 @@ void luaV_execute (lua_State *L) {
     Instruction i;
     StkId ra;
 
+    if(!addr_to_opcode) {
+    	addr_to_opcode = luaH_new(L);
+
+    	/*[[[cog
+    	import cog
+    	from instructions import inst_map
+    	for inst in inst_map:
+    	    cog.outl("set_opcode(L, &&%s, %s);" % (inst["name"], inst["name"]))
+    	]]]*/
+    	set_opcode(L, &&OP_MOVE, OP_MOVE);
+    	set_opcode(L, &&OP_LOADK, OP_LOADK);
+    	set_opcode(L, &&OP_LOADKX, OP_LOADKX);
+    	set_opcode(L, &&OP_LOADBOOL, OP_LOADBOOL);
+    	set_opcode(L, &&OP_LOADNIL, OP_LOADNIL);
+    	set_opcode(L, &&OP_GETUPVAL, OP_GETUPVAL);
+    	set_opcode(L, &&OP_GETTABUP, OP_GETTABUP);
+    	set_opcode(L, &&OP_GETTABLE, OP_GETTABLE);
+    	set_opcode(L, &&OP_SETTABUP, OP_SETTABUP);
+    	set_opcode(L, &&OP_SETUPVAL, OP_SETUPVAL);
+    	set_opcode(L, &&OP_SETTABLE, OP_SETTABLE);
+    	set_opcode(L, &&OP_NEWTABLE, OP_NEWTABLE);
+    	set_opcode(L, &&OP_SELF, OP_SELF);
+    	set_opcode(L, &&OP_ADD, OP_ADD);
+    	set_opcode(L, &&OP_SUB, OP_SUB);
+    	set_opcode(L, &&OP_MUL, OP_MUL);
+    	set_opcode(L, &&OP_DIV, OP_DIV);
+    	set_opcode(L, &&OP_MOD, OP_MOD);
+    	set_opcode(L, &&OP_POW, OP_POW);
+    	set_opcode(L, &&OP_UNM, OP_UNM);
+    	set_opcode(L, &&OP_NOT, OP_NOT);
+    	set_opcode(L, &&OP_LEN, OP_LEN);
+    	set_opcode(L, &&OP_CONCAT, OP_CONCAT);
+    	set_opcode(L, &&OP_JMP, OP_JMP);
+    	set_opcode(L, &&OP_EQ, OP_EQ);
+    	set_opcode(L, &&OP_LT, OP_LT);
+    	set_opcode(L, &&OP_LE, OP_LE);
+    	set_opcode(L, &&OP_TEST, OP_TEST);
+    	set_opcode(L, &&OP_TESTSET, OP_TESTSET);
+    	set_opcode(L, &&OP_CALL, OP_CALL);
+    	set_opcode(L, &&OP_TAILCALL, OP_TAILCALL);
+    	set_opcode(L, &&OP_RETURN, OP_RETURN);
+    	set_opcode(L, &&OP_FORLOOP, OP_FORLOOP);
+    	set_opcode(L, &&OP_FORPREP, OP_FORPREP);
+    	set_opcode(L, &&OP_TFORCALL, OP_TFORCALL);
+    	set_opcode(L, &&OP_TFORLOOP, OP_TFORLOOP);
+    	set_opcode(L, &&OP_SETLIST, OP_SETLIST);
+    	set_opcode(L, &&OP_CLOSURE, OP_CLOSURE);
+    	set_opcode(L, &&OP_VARARG, OP_VARARG);
+    	set_opcode(L, &&OP_EXTRAARG, OP_EXTRAARG);
+    	//[[[end]]]
+    }
+
 
    newframe:  /* reentry point when frame changes (call/return) */
     lua_assert(ci == L->ci);
@@ -569,15 +649,14 @@ void luaV_execute (lua_State *L) {
     k = cl->p->k;
     base = ci->u.l.base;
 
-    // rewrite instruction opcodes to addresses of the operation implementations
+    /* rewrite instruction opcodes to addresses of the operation implementations */
     const Proto *p = cl->p;
     if(GET_OPCODE(p->code[0]) < NUM_OPCODES) {
     	int sc, opcode;
         for(sc = 0; sc < p->sizecode; sc++) {
         	i = p->code[sc];
         	opcode = GET_OPCODE(i);
-        	if(opcode == OP_CALL)
-        		printf("opcode1 %d -> %p\n", GET_OPCODE(i), opcode_to_addr[opcode]);
+
         	SET_OPCODE(p->code[sc], opcode_to_addr[opcode]);
         }
     }

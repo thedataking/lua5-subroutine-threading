@@ -343,7 +343,7 @@ static int findsetreg (Proto *p, int lastpc, int reg) {
   int jmptarget = 0;  /* any code before this address is conditional */
   for (pc = 0; pc < lastpc; pc++) {
     Instruction i = p->code[pc];
-    OpCode op = GET_OPCODE(i);
+    OpCode op = GET_ORIG_OPCODE(i);
     int a = GETARG_A(i);
     switch (op) {
       case OP_LOADNIL: {
@@ -398,7 +398,7 @@ static const char *getobjname (Proto *p, int lastpc, int reg,
   pc = findsetreg(p, lastpc, reg);
   if (pc != -1) {  /* could find instruction? */
     Instruction i = p->code[pc];
-    OpCode op = GET_OPCODE(i);
+    OpCode op = GET_ORIG_OPCODE(i);
     switch (op) {
       case OP_MOVE: {
         int b = GETARG_B(i);  /* move from 'b' to 'a' */
@@ -447,7 +447,7 @@ static const char *getfuncname (lua_State *L, CallInfo *ci, const char **name) {
   Proto *p = ci_func(ci)->p;  /* calling function */
   int pc = currentpc(ci);  /* calling instruction index */
   Instruction i = p->code[pc];  /* calling instruction */
-  switch (GET_OPCODE(i)) {
+  switch (GET_ORIG_OPCODE(i)) {
     case OP_CALL:
     case OP_TAILCALL:  /* get function name */
       return getobjname(p, pc, GETARG_A(i), name);

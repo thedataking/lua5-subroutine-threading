@@ -541,31 +541,28 @@ void luaV_finishOp (lua_State *L) {
     lua_assert(base <= L->top && L->top < L->stack + L->stacksize); \
 	goto *((void*)GET_OPCODE(i));  }
 
-static union { LUA_NUMBER n; OpCode o; LUA_INT32 i; void * ptr; } map; /* convert between double and pointer types */
-static Table *addr_to_opcode = NULL; /* map pointers to opcodes */
+Table *addr_to_opcode = NULL; /* map pointers to opcodes */
 
 void set_opcode(lua_State *L, void *ptr, int opcode) {
-	/* build key */
-	TValue key;
-	map.ptr = ptr;
-	setnvalue(&key, map.n);
+	/* build value */
+	TValue val;
+	setnvalue(&val, cast_num(opcode));
+	/* insert value */
+	luaH_setint(L, addr_to_opcode, (LUA_INT32)ptr, &val);
 
-	/* set value for key */
-	map.o = opcode;
-	TValue *ret = luaH_set(L, addr_to_opcode, &key);
-	setnvalue(ret, map.n);
+//	fprintf(stderr, "stored %d -> %d.\n", (LUA_INT32)ptr, opcode);
 }
 
 int get_opcode(LUA_INT32 ptr) {
-	/* build key */
-	TValue key;
-	map.i = ptr;
-	setnvalue(&key, map.n);
-
+	if(!addr_to_opcode) {
+		fprintf(stderr, "fail: get_opcode called before table initialized.\n");
+	}
+//	fprintf(stderr, "lookup %d.\n", ptr);
     /* retrieve value for key */
-	const TValue *val = luaH_get(addr_to_opcode, &key);
-	map.n = num_(val);
-	return map.o;
+	const TValue *val = luaH_getint(addr_to_opcode, ptr);
+	if(ttisnil(val) || !ttisnumber(val))
+		fprintf(stderr, "fail: failed to find opcode for ptr %d\n", ptr);
+	return cast_int(num_(val));
 }
 
 #include <assert.h>

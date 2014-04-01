@@ -564,17 +564,6 @@ int get_opcode(LUA_INT32 ptr) {
 
 __attribute__((__noinline__)) /* to ensure label addresses don't change when using threaded code */
 void luaV_execute (lua_State *L) {
-    /*[[[cog
-    import cog
-    from instructions import inst_map
-    optimize = True
-
-    if optimize:
-        inst_str = ", ".join(map(lambda i : "&&%s" % i["name"], inst_map))
-        cog.outl("static void *opcode_to_addr[] = {%s};" % inst_str)
-    ]]]*/
-    static void *opcode_to_addr[] = {&&OP_MOVE, &&OP_LOADK, &&OP_LOADKX, &&OP_LOADBOOL, &&OP_LOADNIL, &&OP_GETUPVAL, &&OP_GETTABUP, &&OP_GETTABLE, &&OP_SETTABUP, &&OP_SETUPVAL, &&OP_SETTABLE, &&OP_NEWTABLE, &&OP_SELF, &&OP_ADD, &&OP_SUB, &&OP_MUL, &&OP_DIV, &&OP_MOD, &&OP_POW, &&OP_UNM, &&OP_NOT, &&OP_LEN, &&OP_CONCAT, &&OP_JMP, &&OP_EQ, &&OP_LT, &&OP_LE, &&OP_TEST, &&OP_TESTSET, &&OP_CALL, &&OP_TAILCALL, &&OP_RETURN, &&OP_FORLOOP, &&OP_FORPREP, &&OP_TFORCALL, &&OP_TFORLOOP, &&OP_SETLIST, &&OP_CLOSURE, &&OP_VARARG, &&OP_EXTRAARG};
-    //[[[end]]]
     CallInfo *ci = L->ci;
     LClosure *cl;
     TValue *k;
@@ -586,6 +575,7 @@ void luaV_execute (lua_State *L) {
     	opcode_tables_initialized = 1;
     	/*[[[cog
     	import cog
+    	optimize = True
     	from instructions import inst_map
     	for i,inst in enumerate(inst_map):
     	    cog.outl("opcode_addresses[%d] = (LUA_INT32)&&%s;" % (i, inst["name"]))
@@ -649,7 +639,7 @@ void luaV_execute (lua_State *L) {
         	i = p->code[sc];
         	opcode = GET_OPCODE(i);
 
-        	SET_OPCODE(p->code[sc], opcode_to_addr[opcode]);
+        	SET_OPCODE(p->code[sc], opcode_addresses[opcode]);
         }
     }
 

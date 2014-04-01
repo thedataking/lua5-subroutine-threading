@@ -424,7 +424,7 @@ void luaV_finishOp (lua_State *L) {
   CallInfo *ci = L->ci;
   StkId base = ci->u.l.base;
   Instruction inst = *(ci->u.l.savedpc - 1);  /* interrupted instruction */
-  OpCode op = GET_OPCODE(inst);
+  OpCode op = GET_ORIG_OPCODE(inst);
   switch (op) {  /* finish its execution */
     case OP_ADD: case OP_SUB: case OP_MUL: case OP_DIV:
     case OP_MOD: case OP_POW: case OP_UNM: case OP_LEN:
@@ -541,33 +541,28 @@ void luaV_finishOp (lua_State *L) {
     lua_assert(base <= L->top && L->top < L->stack + L->stacksize); \
 	goto *((void*)GET_OPCODE(i));  }
 
-Table *addr_to_opcode = NULL; /* map pointers to opcodes */
-
-void set_opcode(lua_State *L, void *ptr, int opcode) {
-	/* build value */
-	TValue val;
-	setnvalue(&val, cast_num(opcode));
-	/* insert value */
-	luaH_setint(L, addr_to_opcode, (LUA_INT32)ptr, &val);
-
-//	fprintf(stderr, "stored %d -> %d.\n", (LUA_INT32)ptr, opcode);
-}
+/*
+ * Some forms of threaded code changes opcodes to pointer addresses.
+ * These data structures and the get_opcode function translates from
+ * pointer addresses back to the original opcodes used elsewhere.
+ */
+static int opcode_tables_initialized = 0;;
+static int opcode_addresses[NUM_OPCODES];
 
 int get_opcode(LUA_INT32 ptr) {
-	if(!addr_to_opcode) {
+	int i;
+	if(!opcode_tables_initialized) {
 		fprintf(stderr, "fail: get_opcode called before table initialized.\n");
 	}
-//	fprintf(stderr, "lookup %d.\n", ptr);
-    /* retrieve value for key */
-	const TValue *val = luaH_getint(addr_to_opcode, ptr);
-	if(ttisnil(val) || !ttisnumber(val))
-		fprintf(stderr, "fail: failed to find opcode for ptr %d\n", ptr);
-	return cast_int(num_(val));
+	for(i = 0; i < NUM_OPCODES; i++) {
+		if(opcode_addresses[i] == ptr)
+			return i;
+	}
+	fprintf(stderr, "fail: get_opcode could not find entry for pointer %x.\n", ptr);
+	return NUM_OPCODES;
 }
 
-#include <assert.h>
-
-__attribute__((__noinline__)) /* to ensure label addresses don't change when threaded code */
+__attribute__((__noinline__)) /* to ensure label addresses don't change when using threaded code */
 void luaV_execute (lua_State *L) {
     /*[[[cog
     import cog
@@ -587,55 +582,55 @@ void luaV_execute (lua_State *L) {
     Instruction i;
     StkId ra;
 
-    if(!addr_to_opcode) {
-    	addr_to_opcode = luaH_new(L);
-
+    if(!opcode_tables_initialized) {
+    	opcode_tables_initialized = 1;
     	/*[[[cog
     	import cog
     	from instructions import inst_map
-    	for inst in inst_map:
-    	    cog.outl("set_opcode(L, &&%s, %s);" % (inst["name"], inst["name"]))
+    	for i,inst in enumerate(inst_map):
+    	    cog.outl("opcode_addresses[%d] = (LUA_INT32)&&%s;" % (i, inst["name"]))
+
     	]]]*/
-    	set_opcode(L, &&OP_MOVE, OP_MOVE);
-    	set_opcode(L, &&OP_LOADK, OP_LOADK);
-    	set_opcode(L, &&OP_LOADKX, OP_LOADKX);
-    	set_opcode(L, &&OP_LOADBOOL, OP_LOADBOOL);
-    	set_opcode(L, &&OP_LOADNIL, OP_LOADNIL);
-    	set_opcode(L, &&OP_GETUPVAL, OP_GETUPVAL);
-    	set_opcode(L, &&OP_GETTABUP, OP_GETTABUP);
-    	set_opcode(L, &&OP_GETTABLE, OP_GETTABLE);
-    	set_opcode(L, &&OP_SETTABUP, OP_SETTABUP);
-    	set_opcode(L, &&OP_SETUPVAL, OP_SETUPVAL);
-    	set_opcode(L, &&OP_SETTABLE, OP_SETTABLE);
-    	set_opcode(L, &&OP_NEWTABLE, OP_NEWTABLE);
-    	set_opcode(L, &&OP_SELF, OP_SELF);
-    	set_opcode(L, &&OP_ADD, OP_ADD);
-    	set_opcode(L, &&OP_SUB, OP_SUB);
-    	set_opcode(L, &&OP_MUL, OP_MUL);
-    	set_opcode(L, &&OP_DIV, OP_DIV);
-    	set_opcode(L, &&OP_MOD, OP_MOD);
-    	set_opcode(L, &&OP_POW, OP_POW);
-    	set_opcode(L, &&OP_UNM, OP_UNM);
-    	set_opcode(L, &&OP_NOT, OP_NOT);
-    	set_opcode(L, &&OP_LEN, OP_LEN);
-    	set_opcode(L, &&OP_CONCAT, OP_CONCAT);
-    	set_opcode(L, &&OP_JMP, OP_JMP);
-    	set_opcode(L, &&OP_EQ, OP_EQ);
-    	set_opcode(L, &&OP_LT, OP_LT);
-    	set_opcode(L, &&OP_LE, OP_LE);
-    	set_opcode(L, &&OP_TEST, OP_TEST);
-    	set_opcode(L, &&OP_TESTSET, OP_TESTSET);
-    	set_opcode(L, &&OP_CALL, OP_CALL);
-    	set_opcode(L, &&OP_TAILCALL, OP_TAILCALL);
-    	set_opcode(L, &&OP_RETURN, OP_RETURN);
-    	set_opcode(L, &&OP_FORLOOP, OP_FORLOOP);
-    	set_opcode(L, &&OP_FORPREP, OP_FORPREP);
-    	set_opcode(L, &&OP_TFORCALL, OP_TFORCALL);
-    	set_opcode(L, &&OP_TFORLOOP, OP_TFORLOOP);
-    	set_opcode(L, &&OP_SETLIST, OP_SETLIST);
-    	set_opcode(L, &&OP_CLOSURE, OP_CLOSURE);
-    	set_opcode(L, &&OP_VARARG, OP_VARARG);
-    	set_opcode(L, &&OP_EXTRAARG, OP_EXTRAARG);
+    	opcode_addresses[0] = (LUA_INT32)&&OP_MOVE;
+    	opcode_addresses[1] = (LUA_INT32)&&OP_LOADK;
+    	opcode_addresses[2] = (LUA_INT32)&&OP_LOADKX;
+    	opcode_addresses[3] = (LUA_INT32)&&OP_LOADBOOL;
+    	opcode_addresses[4] = (LUA_INT32)&&OP_LOADNIL;
+    	opcode_addresses[5] = (LUA_INT32)&&OP_GETUPVAL;
+    	opcode_addresses[6] = (LUA_INT32)&&OP_GETTABUP;
+    	opcode_addresses[7] = (LUA_INT32)&&OP_GETTABLE;
+    	opcode_addresses[8] = (LUA_INT32)&&OP_SETTABUP;
+    	opcode_addresses[9] = (LUA_INT32)&&OP_SETUPVAL;
+    	opcode_addresses[10] = (LUA_INT32)&&OP_SETTABLE;
+    	opcode_addresses[11] = (LUA_INT32)&&OP_NEWTABLE;
+    	opcode_addresses[12] = (LUA_INT32)&&OP_SELF;
+    	opcode_addresses[13] = (LUA_INT32)&&OP_ADD;
+    	opcode_addresses[14] = (LUA_INT32)&&OP_SUB;
+    	opcode_addresses[15] = (LUA_INT32)&&OP_MUL;
+    	opcode_addresses[16] = (LUA_INT32)&&OP_DIV;
+    	opcode_addresses[17] = (LUA_INT32)&&OP_MOD;
+    	opcode_addresses[18] = (LUA_INT32)&&OP_POW;
+    	opcode_addresses[19] = (LUA_INT32)&&OP_UNM;
+    	opcode_addresses[20] = (LUA_INT32)&&OP_NOT;
+    	opcode_addresses[21] = (LUA_INT32)&&OP_LEN;
+    	opcode_addresses[22] = (LUA_INT32)&&OP_CONCAT;
+    	opcode_addresses[23] = (LUA_INT32)&&OP_JMP;
+    	opcode_addresses[24] = (LUA_INT32)&&OP_EQ;
+    	opcode_addresses[25] = (LUA_INT32)&&OP_LT;
+    	opcode_addresses[26] = (LUA_INT32)&&OP_LE;
+    	opcode_addresses[27] = (LUA_INT32)&&OP_TEST;
+    	opcode_addresses[28] = (LUA_INT32)&&OP_TESTSET;
+    	opcode_addresses[29] = (LUA_INT32)&&OP_CALL;
+    	opcode_addresses[30] = (LUA_INT32)&&OP_TAILCALL;
+    	opcode_addresses[31] = (LUA_INT32)&&OP_RETURN;
+    	opcode_addresses[32] = (LUA_INT32)&&OP_FORLOOP;
+    	opcode_addresses[33] = (LUA_INT32)&&OP_FORPREP;
+    	opcode_addresses[34] = (LUA_INT32)&&OP_TFORCALL;
+    	opcode_addresses[35] = (LUA_INT32)&&OP_TFORLOOP;
+    	opcode_addresses[36] = (LUA_INT32)&&OP_SETLIST;
+    	opcode_addresses[37] = (LUA_INT32)&&OP_CLOSURE;
+    	opcode_addresses[38] = (LUA_INT32)&&OP_VARARG;
+    	opcode_addresses[39] = (LUA_INT32)&&OP_EXTRAARG;
     	//[[[end]]]
     }
 

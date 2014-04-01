@@ -281,7 +281,7 @@ static void PrintCode(const Proto* f)
  for (pc=0; pc<n; pc++)
  {
   Instruction i=code[pc];
-  OpCode o=GET_OPCODE(i);
+  OpCode o=GET_ORIG_OPCODE(i);
   int a=GETARG_A(i);
   int b=GETARG_B(i);
   int c=GETARG_C(i);
